@@ -20,7 +20,6 @@ permissions:
 
 env:
   GRADLE_OPTS: "-Xmx3g -Dorg.gradle.jvmargs=-Xmx3g -Dorg.gradle.daemon=false"
-  ANDROID_SDK_ROOT: ${{ runner.home }}/android-sdk
 
 jobs:
   build:
@@ -76,6 +75,8 @@ jobs:
           fi
           
           echo "Using base URL: $(grep fidalgo_api_base_url gradle.properties)"
+        env:
+          ANDROID_SDK_ROOT: ${{ env.ANDROID_SDK_ROOT }}
 
       - name: Tornar gradlew executável
         run: chmod +x ./android-tv-native/gradlew
