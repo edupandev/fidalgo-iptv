@@ -47,7 +47,7 @@ jobs:
           packages: |
             platforms;android-34
             build-tools;34.0.0
-            cmdline-tools;latest
+            cmdline-tools;10.0
           accept-android-sdk-licenses: true
 
       - name: Cache Gradle
