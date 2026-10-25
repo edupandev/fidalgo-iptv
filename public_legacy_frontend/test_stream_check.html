@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="background:#000;color:#fff;">
+<iframe id="f" src="http://127.0.0.1:3080/" style="width:1280px;height:800px;border:0;"></iframe>
+<div id="result" style="font-family:sans-serif;padding:20px;"></div>
+<script>
+window.onload = () => {
+  setTimeout(async () => {
+    try {
+      const win = document.getElementById('f').contentWindow;
+      const doc = document.getElementById('f').contentDocument;
+      
+      const testItem = {
+        imdbId: 'tt15239678', // Dune: Part Two
+        id: 'tt15239678',
+        title: 'Dune: Part Two',
+        type: 'movie',
+        poster: ''
+      };
+      
+      console.log('Testing renderStremioStreamsForMeta for Dune...');
+      await win.renderStremioStreamsForMeta(testItem, null, null, '', false);
+      
+      const streamCards = doc.querySelectorAll('#metaStreamsList .stremio-stream-card');
+      const resText = 'SUCCESS: Found ' + streamCards.length + ' streams for ' + testItem.title;
+      console.log(resText);
+      document.getElementById('result').textContent = resText;
+    } catch(err) {
+      const errText = 'ERROR: ' + err.message + ' at ' + err.stack;
+      console.error(errText);
+      document.getElementById('result').textContent = errText;
+    }
+  }, 3000);
+};
+</script>
+</body>
+</html>

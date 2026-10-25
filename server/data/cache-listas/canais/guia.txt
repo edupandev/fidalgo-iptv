@@ -1,0 +1,301 @@
+# guia.txt — tabelas do guia de programação, por canal.
+# Uma linha por item, campos separados por TAB:
+#   meuguia<TAB>nome do canal no catálogo<TAB>código no meuguia.tv
+#   guiadetv<TAB>nome normalizado do canal<TAB>endereço no guiadetv.com
+#   alias<TAB>nome normalizado<TAB>nome do canal no feed XMLTV
+#   feed<TAB>-<TAB>endereço de um feed XMLTV (vale a ordem)
+#   pluto<TAB>-<TAB>endereço do guia da Pluto TV
+# Os apps leem este arquivo do link dos canais; sem ele, o guia fica só com o que casa por nome.
+
+meuguia	A&E	MDO
+meuguia	Animal Planet	APL
+meuguia	Band	BAN
+meuguia	Cartoon Network	CAR
+meuguia	Cinemax	MNX
+meuguia	Combate	135
+meuguia	Discovery Kids	DIK
+meuguia	Discovery World	DIW
+meuguia	ESPN	ESP
+meuguia	ESPN 2	ES2
+meuguia	ESPN 4	ES4
+meuguia	GNT	GNT
+meuguia	Globo RJ	GRD
+meuguia	Globo SP	GRD
+meuguia	GloboNews	GLN
+meuguia	Gloob	GOB
+meuguia	HBO	HBO
+meuguia	HBO Family	HFA
+meuguia	HBO Plus	HPL
+meuguia	HBO2	HB2
+meuguia	History	HIS
+meuguia	Megapix	MPX
+meuguia	Record	REC
+meuguia	SBT	SBT
+meuguia	Space	SPA
+meuguia	SporTV	SPO
+meuguia	SporTV 2	SP2
+meuguia	SporTV 3	SP3
+meuguia	TNT	TNT
+meuguia	TNT Séries	TBS
+meuguia	Telecine Action	TC2
+meuguia	Telecine Pipoca	TC4
+meuguia	Telecine Premium	TC1
+meuguia	Universal TV	USA
+meuguia	Warner	WBT
+meuguia	AXN	AXN
+meuguia	canal-brasil	CBR
+meuguia	Canal Brasil	CBR
+meuguia	canal brasil	CBR
+meuguia	Discovery Channel	DIS
+meuguia	Discovery Home & Health	HEA
+meuguia	Discovery Science	DSC
+meuguia	Discovery Turbo	DTU
+meuguia	E!	EET
+meuguia	Sony Channel	SET
+meuguia	Studio Universal	HAL
+meuguia	Band Sports	BSP
+meuguia	ESPN 3	ES3
+meuguia	ESPN 5	ES5
+meuguia	canal-off	OFF
+meuguia	Premiere Clubes	121
+meuguia	Multishow	MSH
+meuguia	Viva	VIV
+meuguia	Arte 1	BQ5
+meuguia	TLC	TRV
+meuguia	AMC	MGM
+meuguia	Band News	NEW
+meuguia	Globo	GRD
+meuguia	Gloobinho	GBI
+meuguia	Record News	RCN
+meuguia	RedeTV	RTV
+meuguia	TCM	TCM
+meuguia	Telecine Cult	TC5
+meuguia	Telecine Fun	TC6
+meuguia	Telecine Touch	TC3
+meuguia	TV Aparecida	TAP
+meuguia	TV Cultura	CUL
+meuguia	TV Gazeta	GAZ
+meuguia	TV Brasil	TED
+guiadetv	a e	ae
+guiadetv	ae	ae
+guiadetv	agro	agro
+guiadetv	agro mais	agro
+guiadetv	canal agro	agro
+guiadetv	amc	amc
+guiadetv	animal planet	animal-planet
+guiadetv	arte 1	arte-1
+guiadetv	arte1	arte-1
+guiadetv	axn	axn
+guiadetv	band	band
+guiadetv	band sp	band
+guiadetv	band campinas	band
+guiadetv	band curitiba	band
+guiadetv	band mg	band
+guiadetv	band para	band
+guiadetv	band recife tv tribuna	band
+guiadetv	band rn	band
+guiadetv	band rs	band
+guiadetv	band sergipe	band
+guiadetv	band rj	band-rj
+guiadetv	band news	bandnews
+guiadetv	bandnews	bandnews
+guiadetv	band sports	bandsports
+guiadetv	bandsports	bandsports
+guiadetv	bbc world	bbc-world
+guiadetv	bbc world news	bbc-world
+guiadetv	bis	bis
+guiadetv	bloomberg	bloomberg
+guiadetv	box kids	box-kids
+guiadetv	box kids tv	box-kids
+guiadetv	canal educacao	canal-educacao
+guiadetv	canal rural	canal-rural
+guiadetv	canal uol	canal-uol
+guiadetv	cancao nova	cancao-nova
+guiadetv	cartoon network	cartoon-network
+guiadetv	cartoonito	cartoonito
+guiadetv	cinemax	cinemax
+guiadetv	cnn brasil	cnn-brasil
+guiadetv	combate	combate
+guiadetv	curta	curta
+guiadetv	discovery channel	discovery-channel
+guiadetv	discovery home health	discovery-home-health
+guiadetv	discovery h h	discovery-home-health
+guiadetv	discovery kids	discovery-kids
+guiadetv	discovery science	discovery-science
+guiadetv	discovery theater	discovery-theater
+guiadetv	discovery turbo	discovery-turbo
+guiadetv	discovery world	discovery-world
+guiadetv	discovery id	investigacao-discovery
+guiadetv	investigacao discovery	investigacao-discovery
+guiadetv	investigation discovery	investigacao-discovery
+guiadetv	e	e
+guiadetv	espn	espn
+guiadetv	espn 2	espn-2
+guiadetv	espn 3	espn-3
+guiadetv	espn 4	espn-4
+guiadetv	espn 5	espn-5
+guiadetv	espn 6	espn-6
+guiadetv	film arts	film-arts
+guiadetv	food network	food-network
+guiadetv	fox news	fox-news
+guiadetv	futura	futura
+guiadetv	canal futura	futura
+guiadetv	ge tv	ge-tv
+guiadetv	getv	ge-tv
+guiadetv	globo news	globo-news
+guiadetv	globonews	globo-news
+guiadetv	globo rj	globo-rio-de-janeiro
+guiadetv	globo rio de janeiro	globo-rio-de-janeiro
+guiadetv	globo	globo-sp
+guiadetv	globo sp	globo-sp
+guiadetv	globo am	globo-sp
+guiadetv	globo ce	globo-sp
+guiadetv	globo df	globo-sp
+guiadetv	globo es	globo-sp
+guiadetv	globo go	globo-sp
+guiadetv	globo mg	globo-sp
+guiadetv	globo pb	globo-sp
+guiadetv	globo pe	globo-sp
+guiadetv	globo rs	globo-sp
+guiadetv	gloob	gloob
+guiadetv	gloobinho	gloobinho
+guiadetv	gnt	gnt
+guiadetv	hbo	hbo
+guiadetv	hbo 2	hbo-2
+guiadetv	hbo2	hbo-2
+guiadetv	hbo family	hbo-family
+guiadetv	hbo mundi	hbo-mundi
+guiadetv	hbo plus	hbo-plus
+guiadetv	hbo pop	hbo-pop
+guiadetv	hbo signature	hbo-signature
+guiadetv	hbo xtreme	hbo-xtreme
+guiadetv	hgtv	hgtv
+guiadetv	history	history
+guiadetv	history channel	history
+guiadetv	history 2	history-2
+guiadetv	h2	history-2
+guiadetv	jovem pan news	jovem-pan-news
+guiadetv	lifetime	lifetime
+guiadetv	lifetime movies	lifetime
+guiadetv	megapix	megapix
+guiadetv	multishow	multishow
+guiadetv	music box brazil	music-box-brazil
+guiadetv	n sports	nsports
+guiadetv	nsports	nsports
+guiadetv	n sports jogo 1	nsports
+guiadetv	off	off
+guiadetv	canal off	off
+guiadetv	premiere	premiere-fc
+guiadetv	premiere clubes	premiere-fc
+guiadetv	premiere fc	premiere-fc
+guiadetv	premiere 2	premiere-2
+guiadetv	premiere 3	premiere-3
+guiadetv	premiere 4	premiere-4
+guiadetv	premiere 5	premiere-5
+guiadetv	premiere 6	premiere-6
+guiadetv	premiere 7	premiere-7
+guiadetv	prime box brazil	prime-box-brazil
+guiadetv	record news	record-news
+guiadetv	record	record-tv
+guiadetv	record tv	record-tv
+guiadetv	record sp	record-tv
+guiadetv	record go	record-tv
+guiadetv	record mg	record-tv
+guiadetv	record rj	record-tv
+guiadetv	record internacional	record-tv
+guiadetv	recordtv	record-tv
+guiadetv	rede brasil	rede-brasil
+guiadetv	rede familia	rede-familia
+guiadetv	rede gospel	rede-gospel
+guiadetv	redetv	rede-tv
+guiadetv	rede tv	rede-tv
+guiadetv	rede vida	rede-vida
+guiadetv	sbt	sbt
+guiadetv	sbt sp	sbt
+guiadetv	sbt alterosa	sbt
+guiadetv	sbt ba	sbt
+guiadetv	sbt go	sbt
+guiadetv	sbt interior	sbt
+guiadetv	sbt londrina	sbt
+guiadetv	sbt maringa	sbt
+guiadetv	sbt mg	sbt
+guiadetv	sbt pi	sbt
+guiadetv	sbt pr	sbt
+guiadetv	sbt news	sbt-news
+guiadetv	sbt rj	sbt-rio-de-janeiro
+guiadetv	sbt rio de janeiro	sbt-rio-de-janeiro
+guiadetv	sony	sony
+guiadetv	sony channel	sony
+guiadetv	sony movies	sony-movies
+guiadetv	space	space
+guiadetv	sportv	sportv
+guiadetv	sportv 2	sportv-2
+guiadetv	sportv2	sportv-2
+guiadetv	sportv 3	sportv-3
+guiadetv	sportv3	sportv-3
+guiadetv	sportynet	sportynet
+guiadetv	sportynet 01	sportynet
+guiadetv	sportynet 4	sportynet
+guiadetv	sportynet 1	sportynet
+guiadetv	sportynet 2	sportynet
+guiadetv	sportynet 3	sportynet
+guiadetv	studio universal	studio-universal
+guiadetv	syfy	syfy
+guiadetv	usa network	syfy
+guiadetv	tcm	tcm
+guiadetv	telecine action	telecine-action
+guiadetv	telecine cult	telecine-cult
+guiadetv	telecine fun	telecine-fun
+guiadetv	telecine pipoca	telecine-pipoca
+guiadetv	telecine premium	telecine-premium
+guiadetv	telecine touch	telecine-touch
+guiadetv	terra viva	terra-viva
+guiadetv	tlc	tlc
+guiadetv	tnt	tnt
+guiadetv	tnt novelas	tnt-novelas
+guiadetv	tnt series	tnt-series
+guiadetv	tooncast	tooncast
+guiadetv	travel box brazil	travel-box-brasil
+guiadetv	travel box brasil	travel-box-brasil
+guiadetv	trutv	trutv
+guiadetv	adult swim	trutv
+guiadetv	tv aparecida	tv-aparecida
+guiadetv	tv brasil	tv-brasil
+guiadetv	tv camara	tv-camara
+guiadetv	tv cultura	tv-cultura
+guiadetv	cultura	tv-cultura
+guiadetv	tv gazeta	tv-gazeta
+guiadetv	gazeta	tv-gazeta
+guiadetv	tv ra tim bum	tv-ra-tim-bum
+guiadetv	ra tim bum	tv-ra-tim-bum
+guiadetv	tv senado	tv-senado
+guiadetv	universal tv	universal-tv
+guiadetv	universal channel	universal-tv
+guiadetv	viva	viva
+guiadetv	canal viva	viva
+guiadetv	globoplay novelas	viva
+guiadetv	warner	warner
+guiadetv	warner channel	warner
+guiadetv	woohoo	woohoo
+guiadetv	x sports	xsports
+guiadetv	xsports	xsports
+alias	adult swim	trutv
+alias	history	history channel
+alias	sony channel	sony
+alias	sportv 2	sportv2
+alias	sportv 3	sportv3
+alias	gnt	gnt hd
+alias	band	band sp
+alias	warner	warner channel
+alias	sbt	sbt sp
+alias	discovery id	investigacao discovery
+alias	amc	amc brasil
+alias	cnn brasil money	cnn brasil money hd br
+alias	universal premiere	universal premiere hd br
+alias	universal reality	universal reality br
+alias	tnt novelas	tnt novelas br
+alias	trace brazuca	trace brasil hd br
+alias	record sp	recordtv sp
+feed	-	https://iptv-epg.org/files/epg-br.xml
+feed	-	https://www.open-epg.com/files/brazil3.xml
+pluto	-	https://raw.githubusercontent.com/matthuisman/i.mjh.nz/master/PlutoTV/br.xml

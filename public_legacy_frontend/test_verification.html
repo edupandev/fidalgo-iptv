@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><title>Verify BestCine, Fenix & Subtitles</title></head>
+<body style="margin:0; background:#000; color:#fff; font-family:sans-serif;">
+  <div id="debugStatus" style="padding:10px; background:#111; font-size:14px; z-index:9999; position:relative; border-bottom:1px solid #333;">Aguardando...</div>
+  <iframe id="app" src="/index.html" style="width:1600px; height:1200px; border:none;"></iframe>
+  <script>
+    const log = (msg) => {
+      console.log(msg);
+      document.getElementById('debugStatus').innerText += '\n' + msg;
+    };
+
+    window.onload = async () => {
+      try {
+        const frame = document.getElementById('app');
+        await new Promise(r => setTimeout(r, 1000));
+        const win = frame.contentWindow;
+
+        log('1. Iniciando playMovieDirect(Duna)...');
+        await win.playMovieDirect({
+          title: 'Duna',
+          imdbId: 'tt1160419',
+          type: 'movie',
+          year: '2021',
+          genres: ['Ficção Científica', 'Aventura'],
+          poster: 'https://images.metahub.space/poster/medium/tt1160419/img'
+        });
+
+        // Espera a stream ser escolhida e tocar
+        await new Promise(r => setTimeout(r, 2500));
+        log('2. Stream selecionada: ' + (win.currentChannel?.name || 'Nenhum'));
+
+        const mgr = win.PlayerAudioSubsManager;
+        log('3. Manager existe: ' + Boolean(mgr));
+        if (mgr) {
+          log('4. Chamando selectSubtitle...');
+          await mgr.selectSubtitle({
+            id: 'opensub-pt',
+            label: 'Português (OpenSubtitles)',
+            lang: 'pt-BR',
+            url: '/api/subtitle-file?url=https%3A%2F%2Fsubs5.strem.io%2Fen%2Fdownload%2Fsubencoding-stremio-utf8%2Fsrc-api%2Ffile%2F1957410981'
+          });
+
+          log('5. Cues carregadas: ' + mgr.activeCues.length);
+          if (mgr.activeCues.length > 0) {
+            log('   Primeira cue: ' + mgr.activeCues[0].start + 's -> ' + mgr.activeCues[0].end + 's: ' + mgr.activeCues[0].text);
+          }
+
+          const v = win.document.getElementById('videoPlayer');
+          if (v) {
+            try { v.currentTime = 5.0; } catch (_) {}
+          }
+          mgr.updateSubtitleDisplay();
+
+          const overlay = win.document.getElementById('subtitleOverlay');
+          log('6. Overlay HTML: ' + (overlay ? overlay.innerHTML : 'NULL'));
+          log('7. Overlay hidden: ' + (overlay ? overlay.classList.contains('hidden') : 'NULL'));
+        }
+      } catch (err) {
+        log('ERRO: ' + err.message);
+      }
+    };
+  </script>
+</body>
+</html>

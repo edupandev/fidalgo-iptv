@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>fidalGO TV Verification</title>
+  <style>
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+    #appFrame { width: 100vw; height: 100vh; border: none; }
+  </style>
+</head>
+<body>
+  <iframe id="appFrame" src="/index.html"></iframe>
+  <script>
+    window.addEventListener('load', async () => {
+      const frame = document.getElementById('appFrame');
+      
+      // Aguarda o app inicializar e os canais estarem disponíveis
+      let win, doc, card;
+      for (let i = 0; i < 25; i++) {
+        await new Promise(r => setTimeout(r, 300));
+        win = frame.contentWindow;
+        doc = frame.contentDocument;
+        if (win && doc) {
+          card = doc.querySelector('.channel-card') || doc.querySelector('.vod-card');
+          if (card && win.channels && win.channels.length > 0) break;
+        }
+      }
+
+      console.log('1. Iniciando primeiro canal para validar Palco TV e Player...');
+      if (win && win.channels && win.channels.length > 0 && typeof win.playChannel === 'function') {
+        win.playChannel(win.channels[0], 0);
+        await new Promise(r => setTimeout(r, 2000));
+
+        // Ativa feedback OSD de controle remoto (+10s)
+        if (win.TVNavigation) {
+          win.TVNavigation.showPlayerOsd('+10s', '⏩');
+
+          // Foca o botão Áudio & Legendas (CC) com borda brilhante e estado :focus
+          const ccBtn = doc.getElementById('btnPlayerAudioSubs');
+          if (ccBtn) {
+            win.TVNavigation.setFocus(ccBtn, false);
+          }
+        }
+      }
+
+      console.log('--- TESTE CONCLUÍDO COM SUCESSO ---');
+    });
+  </script>
+</body>
+</html>

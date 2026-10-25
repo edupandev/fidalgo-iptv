@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Test Series HUD</title></head>
+<body style="margin:0; background:#000;">
+    <iframe id="app" src="/index.html#series" style="width:1600px; height:1200px; border:none;"></iframe>
+    <script>
+        window.onload = () => {
+            const frame = document.getElementById('app');
+            setTimeout(() => {
+                const win = frame.contentWindow;
+                win.playSeriesDirect({
+                    title: 'Ruptura (Severance)',
+                    imdbId: 'tt11280740',
+                    year: '2025',
+                    badge: '9.0',
+                    poster: 'https://images.metahub.space/poster/medium/tt11280740/img',
+                    genres: ['Drama', 'FicÃ§Ã£o CientÃ­fica', 'Suspense'],
+                    description: 'Mark lidera uma equipe de funcionÃ¡rios de escritÃ³rio cujas memÃ³rias foram divididas cirurgicamente entre a vida profissional e pessoal.'
+                }, 1, 1);
+
+                setTimeout(() => {
+                    // Open the HUD Audio & Subtitles drawer
+                    const drawerBtn = win.document.getElementById('btnPlayerAudioSubs');
+                    if (drawerBtn) drawerBtn.click();
+                }, 2000);
+            }, 2500);
+        };
+    </script>
+</body>
+</html>

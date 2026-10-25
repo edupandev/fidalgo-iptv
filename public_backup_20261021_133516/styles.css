@@ -1,0 +1,351 @@
+/* ==========================================================================
+   Apple tvOS & iOS Human Interface Guidelines — Design System "fidalGO"
+   ========================================================================== */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-start: #0B0B0E;
+  --bg-end: #0E0E12;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(18, 22, 32, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-focus: #ffffff;
+  --live-red: #FF3B30;
+  --imdb-gold: #E5A916;
+  --apple-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Inter", sans-serif;
+  --apple-font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Inter", sans-serif;
+  --apple-font-mono: 'SF Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+}
+
+.tvos-body {
+  background: radial-gradient(circle at 50% 0%, #151926 0%, var(--bg-start) 65%, var(--bg-end) 100%);
+  font-family: var(--apple-font-sans);
+  letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .apple-display-font {
+  font-family: var(--apple-font-display);
+  letter-spacing: -0.024em;
+}
+
+/* ==========================================================================
+   1. IDENTIDADE VISUAL & LOGO ("fidalGO")
+   ========================================================================== */
+.logo-go {
+  background: linear-gradient(135deg, #E6E8EC 0%, #A6A9B2 45%, #FFFFFF 55%, #7D808A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.fidalgo-emblem {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(166, 169, 178, 0.25) 50%, rgba(20, 24, 34, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ambient-backdrop {
+  background:
+    radial-gradient(circle at 65% 15%, rgba(255, 255, 255, 0.04), transparent 50%),
+    radial-gradient(circle at 20% 75%, rgba(99, 102, 241, 0.04), transparent 45%);
+}
+
+/* ==========================================================================
+   2. SUPERFÍCIES DE VIDRO & SEGMENTED CONTROL (APPLE)
+   ========================================================================== */
+.apple-top-header {
+  background: rgba(11, 11, 14, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.tvos-glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.tvos-glass-strong {
+  background: var(--glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Apple Segmented Control Tabs */
+.segmented-control-container {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-pill {
+  font-family: var(--apple-font-display);
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-pill:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-pill.active {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+}
+
+.cat-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.18s ease;
+}
+
+.cat-chip:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cat-chip.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+}
+
+/* Left Navigation Rail & Genre Pills */
+.rail-btn.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+}
+
+.genre-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.18s ease;
+}
+
+.genre-pill.active {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  border-color: #ffffff;
+}
+
+.stremio-stream-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  transition: all 0.18s ease;
+}
+
+.stremio-stream-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   3. CARDS DE CANAIS & CARROSSÉIS VOD (ESTILO APPLE TV)
+   ========================================================================== */
+.channel-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.18s ease,
+              border-color 0.18s ease;
+  will-change: transform;
+}
+
+.channel-card:hover,
+.channel-card:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+  outline: none;
+}
+
+.channel-card.active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Cartões de Filmes e Séries (Carrosséis Estilo Apple TV+) */
+.vod-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+.vod-card:hover,
+.vod-card:focus-visible {
+  transform: scale(1.06) translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.85);
+  outline: none;
+}
+
+/* Badges Apple: Live Red & IMDb Gold & Addon Origin */
+.badge-live-apple {
+  background: var(--live-red);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-imdb-apple {
+  background: rgba(229, 169, 22, 0.16);
+  color: var(--imdb-gold);
+  border: 1px solid rgba(229, 169, 22, 0.35);
+  font-weight: 700;
+}
+
+.badge-addon-origin {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Rolagem Lisa e Otimizada */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.roleta-track {
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.roleta-track.roleta-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.roleta-arrow-btn {
+  background: rgba(18, 22, 32, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roleta-arrow-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ==========================================================================
+   4. FOCO ESPECIAL DE CONTROLE REMOTO (ENGINE PURO APPLE tvOS)
+   ========================================================================== */
+.tv-focused {
+  outline: none !important;
+  transform: scale(1.06) translateZ(0) !important;
+  box-shadow: 0 0 0 2.5px #ffffff, 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 24px rgba(255, 255, 255, 0.35) !important;
+  z-index: 50 !important;
+  border-color: #ffffff !important;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.16s ease !important;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE NATIVA: ANDROID TV / DESKTOP WIDESCREEN vs SMARTPHONE
+   ========================================================================== */
+@media screen and (min-width: 600px) and (orientation: landscape) {
+  #mobileBottomNav {
+    display: none !important;
+  }
+  #mainNavTabs {
+    display: flex !important;
+  }
+  main {
+    flex-direction: row !important;
+  }
+  #channelSidebar {
+    width: 375px !important;
+    max-width: 42% !important;
+    flex-shrink: 0 !important;
+  }
+  #rightScrollSection {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Apenas Smartphones em Modo Retrato */
+@media (max-width: 767px) and (orientation: portrait) {
+  #rightScrollSection.mobile-player-top {
+    order: -1 !important;
+    flex-shrink: 0 !important;
+    max-height: 48vh !important;
+    overflow-y: auto !important;
+  }
+
+  #channelSidebar {
+    width: 100% !important;
+  }
+
+  .roleta-arrow-btn {
+    display: none !important;
+  }
+}
+
+.mobile-tab-btn {
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.18s ease;
+}
+
+.mobile-tab-btn.active {
+  color: #ffffff !important;
+}
+
+.mobile-tab-btn.active svg {
+  stroke: #ffffff !important;
+}

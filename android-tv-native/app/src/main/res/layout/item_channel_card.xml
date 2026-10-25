@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.leanback.widget.ImageCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/channel_card"
+    android:layout_width="@dimen/channel_card_width"
+    android:layout_height="@dimen/channel_card_height"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardType="infoUnderWithExtra"
+    android:background="@drawable/channel_card_background"
+    android:clipToOutline="true">
+
+    <!-- Logo do Canal (Main Image) -->
+    <ImageView
+        android:id="@+id/channel_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:padding="@dimen/channel_card_padding"
+        android:contentDescription="@string/app_name"
+        android:adjustViewBounds="true" />
+
+    <!-- Info Area (Bottom) -->
+    <TextView
+        android:id="@+id/channel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/spacing_sm"
+        android:textColor="@color/tv_text_primary"
+        android:textSize="@dimen/text_size_sm"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:background="@drawable/hero_gradient_overlay" />
+
+    <!-- Badge Live (Top Right) -->
+    <TextView
+        android:id="@+id/live_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/spacing_xs"
+        android:paddingHorizontal="@dimen/hero_tag_padding_horizontal"
+        android:paddingVertical="@dimen/hero_tag_padding_vertical"
+        android:text="@string/live_now"
+        android:textColor="@color/tv_text_on_accent"
+        android:textSize="@dimen/text_size_xs"
+        android:fontFamily="sans-serif-bold"
+        android:background="@color/live_red"
+        android:visibility="gone" />
+
+    <!-- Focus Preview Label (appears below card when focused) -->
+    <TextView
+        android:id="@+id/focus_preview_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/spacing_xl"
+        android:paddingHorizontal="@dimen/spacing_sm"
+        android:paddingVertical="@dimen/spacing_xs"
+        android:textColor="@color/tv_text_secondary"
+        android:textSize="@dimen/text_size_xs"
+        android:fontFamily="sans-serif-medium"
+        android:background="@color/tv_bg_overlay"
+        android:visibility="gone"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+</androidx.leanback.widget.ImageCardView>

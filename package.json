@@ -1,0 +1,9 @@
+{
+  "name": "iptv-brasil-2026",
+  "version": "1.0.0",
+  "description": "Aplicativo Web de IPTV com suporte ao repositório Ramys/Iptv-Brasil-2026 e fontes de Futebol, Filmes e Séries",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

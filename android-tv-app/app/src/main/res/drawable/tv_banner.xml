@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+    <!-- Fundo fidalGO: preto azulado profundo -->
+    <path
+        android:fillColor="#08080B"
+        android:pathData="M0,0h320v180h-320z" />
+    <!-- Faixa metálica GO (azul céu) -->
+    <path
+        android:fillColor="#38bdf8"
+        android:pathData="M40,40h240v12h-240z" />
+    <!-- "fidal" em branco fosco -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,75h30v35h-30z M110,75h25v35h-25z M145,75h35v35h-35z M190,75h30v35h-30z M230,75h25v35h-25z" />
+    <!-- "GO" em azul metálico escovado -->
+    <path
+        android:fillColor="#38bdf8"
+        android:pathData="M210,85h70v45h-70z M210,95h35v30h-35z M255,95h25v30h-25z" />
+</vector>

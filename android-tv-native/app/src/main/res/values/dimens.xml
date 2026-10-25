@@ -1,0 +1,71 @@
+<resources>
+    <!-- Hero Preview -->
+    <dimen name="hero_preview_height_percent">45%</dimen>
+    <dimen name="hero_preview_height_large">55%</dimen>
+
+    <!-- Channel Cards (tvOS style - horizontal rail) -->
+    <dimen name="channel_card_width">200dp</dimen>
+    <dimen name="channel_card_height">112dp</dimen>
+    <dimen name="channel_card_width_min">160dp</dimen>
+    <dimen name="channel_card_width_max">220dp</dimen>
+    <dimen name="channel_card_height_min">90dp</dimen>
+    <dimen name="channel_card_height_max">130dp</dimen>
+    <dimen name="channel_card_focused_scale">1.08</dimen>
+    <dimen name="channel_card_focused_elevation">16dp</dimen>
+    <dimen name="channel_card_corner_radius">16dp</dimen>
+    <dimen name="channel_card_gap">16dp</dimen>
+    <dimen name="channel_card_padding">12dp</dimen>
+    <dimen name="channel_logo_max_height">60%</dimen>
+    <dimen name="channel_logo_max_width">80%</dimen>
+
+    <!-- Category Pills -->
+    <dimen name="category_pill_height">40dp</dimen>
+    <dimen name="category_pill_padding_horizontal">16dp</dimen>
+    <dimen name="category_pill_gap">8dp</dimen>
+    <dimen name="category_pill_corner_radius">24dp</dimen>
+
+    <!-- Hero Preview -->
+    <dimen name="hero_preview_padding">32dp</dimen>
+    <dimen name="hero_tag_padding_horizontal">12dp</dimen>
+    <dimen name="hero_tag_padding_vertical">6dp</dimen>
+    <dimen name="hero_title_size">32sp</dimen>
+    <dimen name="hero_channel_name_size">18sp</dimen>
+    <dimen name="hero_epg_progress_height">3dp</dimen>
+    <dimen name="hero_epg_progress_margin_top">8dp</dimen>
+
+    <!-- Focus -->
+    <dimen name="focus_border_width">3dp</dimen>
+    <dimen name="focus_elevation">12dp</dimen>
+    <dimen name="focus_shadow_radius">24dp</dimen>
+
+    <!-- EPG Progress -->
+    <dimen name="epg_progress_height">3dp</dimen>
+
+    <!-- Player -->
+    <dimen name="player_control_size">56dp</dimen>
+    <dimen name="player_control_icon_size">28dp</dimen>
+    <dimen name="player_progress_height">4dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_xs">12sp</dimen>
+    <dimen name="text_size_sm">14sp</dimen>
+    <dimen name="text_size_md">16sp</dimen>
+    <dimen name="text_size_lg">18sp</dimen>
+    <dimen name="text_size_xl">20sp</dimen>
+    <dimen name="text_size_xxl">24sp</dimen>
+    <dimen name="text_size_hero">32sp</dimen>
+
+    <!-- Screen Breakpoints -->
+    <dimen name="breakpoint_mobile">768dp</dimen>
+    <dimen name="mobile_channel_card_width">130dp</dimen>
+    <dimen name="mobile_channel_card_height">80dp</dimen>
+    <dimen name="mobile_hero_height_percent">35%</dimen>
+</resources>

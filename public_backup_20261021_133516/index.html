@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>FIDAL GO — Canais Ao Vivo, Filmes, Séries & Esportes</title>
+  <meta name="description" content="FIDAL GO — TV Ao Vivo, Esportes, Filmes, Séries e Animes" />
+  <meta name="theme-color" content="#050507" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        screens: {
+          'sm': '640px',
+          'md': '768px',
+          'lg': '920px',
+          'xl': '1280px',
+          '2xl': '1536px'
+        },
+        extend: {
+          fontFamily: {
+            sans: [
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"SF Pro Display"',
+              '"SF Pro Text"',
+              '"SF Pro Rounded"',
+              '"Helvetica Neue"',
+              'Inter',
+              'sans-serif'
+            ],
+            mono: ['"SF Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.js"></script>
+  <link rel="stylesheet" href="styles.css?v=20261021v15" />
+</head>
+<body class="tvos-body text-white antialiased selection:bg-purple-500 selection:text-white overflow-hidden h-screen flex flex-col">
+
+  <!-- Ambient Stremio + Apple TV Backlight Glow -->
+  <div class="ambient-backdrop pointer-events-none fixed inset-0 z-0"></div>
+
+  <!-- On-Screen Display (OSD) for Direct Numeric Channel Tuning (Smart TV) -->
+  <div id="numericOsd" class="fixed top-24 right-10 z-50 hidden tvos-glass-strong px-6 py-4 rounded-3xl border border-white/15 shadow-2xl flex items-center gap-4 transition-all duration-300">
+    <i data-lucide="hash" class="w-6 h-6 text-purple-400"></i>
+    <div>
+      <div class="text-[11px] uppercase tracking-widest text-white/50 font-semibold">Sintonia Direta</div>
+      <div id="numericOsdDigits" class="text-3xl font-bold tracking-wider font-mono text-white">---</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       1. TOP HEADER BAR (Apple tvOS Navigation Bar + Search + System Status)
+       ======================================================================== -->
+  <header class="apple-top-header relative z-20 flex items-center justify-between gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3.5 min-h-[60px] sm:min-h-[76px] shrink-0 border-b border-white/10">
+    <!-- Left: Logotipo Oficial fidalGO (fidal em Branco Puro + GO em Titânio Cromado Apple) -->
+    <div class="flex items-center gap-2.5 select-none cursor-pointer shrink-0 group" id="brandHomeBtn" title="fidalGO">
+      <div class="fidalgo-emblem w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shadow-lg shrink-0 transition-transform duration-300 group-hover:scale-105">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.5" stroke="url(#fidalTitaniumGlow)" stroke-width="1.8"/>
+          <polygon points="10,8 16,12 10,16" fill="#ffffff" />
+          <defs>
+            <linearGradient id="fidalTitaniumGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E6E8EC"/>
+              <stop offset="45%" stop-color="#A6A9B2"/>
+              <stop offset="55%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#7D808A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="apple-display-font flex items-baseline tracking-tight text-xl sm:text-2xl leading-none">
+        <span class="text-white font-medium">fidal</span><span class="logo-go">GO</span>
+      </div>
+    </div>
+
+    <!-- Center: Barra Principal de Navegação (Segmented Control Apple tvOS) -->
+    <nav class="hidden md:flex segmented-control-container p-1 rounded-full items-center gap-1 shadow-lg shrink-0" id="mainNavTabs" role="tablist">
+      <button data-nav-tab="board" class="nav-pill active px-3.5 xl:px-4 py-1.5 rounded-full text-xs sm:text-sm whitespace-nowrap shrink-0 transition-all duration-200 flex items-center gap-1.5">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0"></i>
+        <span>Início</span>
+      </button>
+      <button data-nav-tab="live" class="nav-pill px-3.5 xl:px-4 py-1.5 rounded-full text-xs sm:text-sm whitespace-nowrap shrink-0 transition-all duration-200 flex items-center gap-1.5">
+        <i data-lucide="tv" class="w-3.5 h-3.5 shrink-0"></i>
+        <span>Canais</span>
+      </button>
+      <button data-nav-tab="sports" class="nav-pill px-3.5 xl:px-4 py-1.5 rounded-full text-xs sm:text-sm whitespace-nowrap shrink-0 transition-all duration-200 flex items-center gap-1.5">
+        <i data-lucide="trophy" class="w-3.5 h-3.5 shrink-0"></i>
+        <span>Esportes</span>
+      </button>
+      <button data-nav-tab="movies" class="nav-pill px-3.5 xl:px-4 py-1.5 rounded-full text-xs sm:text-sm whitespace-nowrap shrink-0 transition-all duration-200 flex items-center gap-1.5">
+        <i data-lucide="film" class="w-3.5 h-3.5 shrink-0"></i>
+        <span>Filmes</span>
+      </button>
+      <button data-nav-tab="series" class="nav-pill px-3.5 xl:px-4 py-1.5 rounded-full text-xs sm:text-sm whitespace-nowrap shrink-0 transition-all duration-200 flex items-center gap-1.5">
+        <i data-lucide="clapperboard" class="w-3.5 h-3.5 shrink-0"></i>
+        <span>Séries</span>
+      </button>
+      <button data-nav-tab="anime" class="nav-pill px-3.5 xl:px-4 py-1.5 rounded-full text-xs sm:text-sm whitespace-nowrap shrink-0 transition-all duration-200 flex items-center gap-1.5">
+        <i data-lucide="swords" class="w-3.5 h-3.5 shrink-0"></i>
+        <span>Animações</span>
+      </button>
+    </nav>
+
+    <!-- Right: Global Search + Numeric Input + Fontes + Clock -->
+    <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+      <!-- 1. Campo de Busca Integrado em Pílula Translúcida Apple -->
+      <div class="relative flex items-center">
+        <i data-lucide="search" class="w-3.5 h-3.5 text-white/50 absolute left-3 pointer-events-none"></i>
+        <input
+          id="globalSearchInput"
+          type="text"
+          placeholder="Buscar..."
+          autocomplete="off"
+          class="tvos-glass pl-8 sm:pl-9 pr-6 sm:pr-8 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm text-white placeholder-white/40 border border-white/10 focus:outline-none focus:border-white/35 focus:bg-white/10 transition-all w-28 sm:w-36 xl:w-48 2xl:w-60"
+        />
+        <button id="btnClearSearch" class="hidden absolute right-2.5 text-white/50 hover:text-white text-xs">✕</button>
+      </div>
+
+      <!-- 2. Discrete Numeric Channel Input (3 digits / Enter) -->
+      <div class="relative hidden md:flex items-center" title="Digite o número do canal (ex: 001) e tecle Enter">
+        <span class="text-[11px] font-mono text-white/45 absolute left-3 pointer-events-none">CH</span>
+        <input
+          id="channelNumberInput"
+          type="text"
+          inputmode="numeric"
+          maxlength="3"
+          placeholder="001"
+          tabindex="-1"
+          class="tvos-glass pl-8 pr-2.5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-mono font-semibold text-center text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all w-20"
+        />
+      </div>
+
+      <!-- Fontes & Addons Button -->
+      <button
+        id="btnOpenSourcesModal"
+        title="Fontes & Addons (FrostView, Brazuca, BestCine, FrostStream)"
+        class="tvos-glass hover:bg-white/15 hover:border-white/30 p-2 sm:p-2.5 rounded-full transition-all flex items-center gap-1.5 text-xs font-semibold shrink-0"
+      >
+        <i data-lucide="layers" class="w-4 h-4 text-purple-300"></i>
+        <span class="hidden 2xl:inline">Fontes</span>
+      </button>
+
+      <!-- Botão Baixar APK TV Stick -->
+      <a
+        href="/app.apk"
+        download="FIDAL_GO_TV.apk"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="btnDownloadApk"
+        title="Baixar Aplicativo para Android TV / TV Stick (APK)"
+        class="tvos-focus-target bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold px-2.5 sm:px-3 py-1.5 rounded-full shadow-lg transition-all flex items-center gap-1 text-xs border border-white/20 active:scale-95 shrink-0"
+      >
+        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+        <span class="hidden sm:inline">APK</span>
+      </a>
+
+      <!-- 3. System Status: Wi-Fi & Digital Clock -->
+      <div class="hidden md:flex tvos-glass px-3 py-1.5 rounded-full items-center gap-2 select-none">
+        <i data-lucide="wifi" class="w-3.5 h-3.5 text-emerald-400" title="Online"></i>
+        <span id="digitalClock" class="text-xs font-semibold tracking-tight font-mono text-white/90">14:00</span>
+      </div>
+    </div>
+        <i data-lucide="wifi" class="w-4 h-4 text-emerald-400" title="Online"></i>
+        <span id="digitalClock" class="text-xs sm:text-sm font-semibold tracking-tight font-mono text-white/95">14:00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. MAIN WORKSPACE (Stremio Left Navigation Rail + TV Sidebar + Main Stage)
+       ======================================================================== -->
+  <div class="relative z-10 flex-1 flex overflow-hidden min-h-0">
+
+    <!-- STREMIO-WEB LEFT VERTICAL NAVIGATION RAIL -->
+    <aside class="hidden sm:flex flex-col items-center justify-between py-4 px-2.5 w-16 shrink-0 border-r border-white/5 select-none">
+      <div class="flex flex-col items-center gap-3">
+        <button data-rail-btn="board" class="rail-btn active w-11 h-11 rounded-2xl flex items-center justify-center text-white hover:bg-white/10 transition-all" title="Hub Inicial Apple TV+ (Filmes & Séries Novas)">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </button>
+        <button data-rail-btn="live" class="rail-btn w-11 h-11 rounded-2xl flex items-center justify-center text-white/55 hover:text-white hover:bg-white/10 transition-all" title="Canal Aberto & TV Ao Vivo">
+          <i data-lucide="tv" class="w-5 h-5"></i>
+        </button>
+        <button data-rail-btn="sports" class="rail-btn w-11 h-11 rounded-2xl flex items-center justify-center text-white/55 hover:text-white hover:bg-white/10 transition-all" title="Esportes & Meu Futebol Ao Vivo">
+          <i data-lucide="trophy" class="w-5 h-5"></i>
+        </button>
+        <button data-rail-btn="movies" class="rail-btn w-11 h-11 rounded-2xl flex items-center justify-center text-white/55 hover:text-white hover:bg-white/10 transition-all" title="Catálogo de Filmes">
+          <i data-lucide="film" class="w-5 h-5"></i>
+        </button>
+        <button data-rail-btn="series" class="rail-btn w-11 h-11 rounded-2xl flex items-center justify-center text-white/55 hover:text-white hover:bg-white/10 transition-all" title="Catálogo de Séries">
+          <i data-lucide="clapperboard" class="w-5 h-5"></i>
+        </button>
+        <button id="btnRailFavorites" class="rail-btn w-11 h-11 rounded-2xl flex items-center justify-center text-white/55 hover:text-white hover:bg-white/10 transition-all" title="Biblioteca / Favoritos">
+          <i data-lucide="bookmark" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <button id="btnRailAddons" class="w-11 h-11 rounded-2xl flex items-center justify-center text-purple-400 hover:bg-purple-500/20 transition-all" title="Addons & Repositórios">
+          <i data-lucide="puzzle" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA: Channel Sidebar + Player / Stremio Discover Grid -->
+    <main class="flex-1 flex flex-col md:flex-row gap-3 sm:gap-4 p-2 sm:p-3 overflow-hidden min-h-0">
+
+      <!-- COLUNA ESQUERDA: Lista de Canais Ao Vivo (Visível nas abas Canal Aberto e Esportes) -->
+      <aside id="channelSidebar" class="hidden w-full md:w-[320px] lg:w-[375px] xl:w-[420px] shrink-0 tvos-glass rounded-3xl flex flex-col overflow-hidden shadow-2xl transition-all duration-300">
+        <!-- Category Filter Chips com Botões de Rolagem Horizontal (Barra Aumentada) -->
+        <div class="px-3.5 py-3.5 border-b border-white/10 flex items-center gap-2">
+          <button
+            id="btnCatScrollLeft"
+            type="button"
+            title="Rolar categorias para a esquerda"
+            class="w-8 h-8 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white/85 flex items-center justify-center shrink-0 border border-white/20 transition-all active:scale-95"
+          >
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+
+          <div class="flex-1 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth select-none cursor-grab py-0.5" id="categoryFilterPills">
+            <button data-cat-pill="TV Aberta" class="cat-chip active px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold whitespace-nowrap shrink-0 transition-all">Canal Aberto</button>
+            <button data-cat-pill="FrostView" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">FrostView TV</button>
+            <button data-cat-pill="Brazuca" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">Brazuca TV</button>
+            <button data-cat-pill="Esportes" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">Esportes</button>
+            <button data-cat-pill="Notícias" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">Notícias</button>
+            <button data-cat-pill="Filmes" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">Filmes TV</button>
+            <button data-cat-pill="Séries" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">Séries TV</button>
+            <button data-cat-pill="ALL" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">Todos</button>
+            <button data-cat-pill="Favoritos" class="cat-chip px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-white/75 hover:text-white whitespace-nowrap shrink-0 transition-all">★ Favoritos</button>
+          </div>
+
+          <button
+            id="btnCatScrollRight"
+            type="button"
+            title="Rolar categorias para a direita"
+            class="w-8 h-8 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white/85 flex items-center justify-center shrink-0 border border-white/20 transition-all active:scale-95"
+          >
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <span id="channelTotalBadge" class="text-xs font-mono text-white/55 shrink-0 px-2.5 py-1 rounded-full bg-white/5">0</span>
+        </div>
+
+        <!-- Vertical Smooth Scroll Channel Cards -->
+        <div id="channelListContainer" class="flex-1 overflow-y-auto p-3 space-y-2 scroll-smooth" tabindex="0"></div>
+
+        <!-- Smart TV Keyboard Hint + Botões de Rolagem da Lista de Canais -->
+        <div class="px-3.5 py-2 border-t border-white/10 bg-black/20 flex items-center justify-between gap-2 text-[11px] text-white/45">
+          <span class="flex items-center gap-1.5">
+            <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white/70 font-mono text-[10px]">↑↓</kbd> Canais
+          </span>
+          <div class="flex items-center gap-1.5">
+            <button
+              id="btnChannelListUp"
+              type="button"
+              title="Rolar lista de canais para cima"
+              class="px-2.5 py-1 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white/80 text-[10px] font-semibold flex items-center gap-1 border border-white/15 transition-all"
+            >
+              <span>▲ Subir</span>
+            </button>
+            <button
+              id="btnChannelListDown"
+              type="button"
+              title="Rolar lista de canais para baixo"
+              class="px-2.5 py-1 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white/80 text-[10px] font-semibold flex items-center gap-1 border border-white/15 transition-all"
+            >
+              <span>▼ Descer</span>
+            </button>
+          </div>
+          <span class="hidden xl:flex items-center gap-1">
+            <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white/70 font-mono text-[10px]">0-9</kbd>
+          </span>
+        </div>
+      </aside>
+
+      <!-- ÁREA CENTRAL/DIREITA: Hub Apple TV + Player Principal + EPG + Carrosséis -->
+      <section class="flex-1 flex flex-col gap-5 overflow-y-auto min-w-0 pr-1.5 scroll-smooth" id="rightScrollSection">
+
+        <!-- APPLE TV+ HERO SHOWCASE BANNER (Exibido no Hub Inicial com Filmes & Séries Novas) -->
+        <div id="appleTvHeroHub" class="relative w-full min-h-[220px] max-h-[340px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col justify-end p-4 sm:p-7 group select-none shrink-0 bg-[#0B0B0E]">
+          <!-- Hero Fanart Backdrop Cinemático Apple -->
+          <div id="heroHubBackdrop" class="absolute inset-0 bg-cover bg-center transition-all duration-700 scale-105 group-hover:scale-100" style="background-image: linear-gradient(135deg, #1e1b4b 0%, #0B0B0E 100%);"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0E] via-[#0B0B0E]/60 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0B0B0E]/90 via-[#0B0B0E]/40 to-transparent"></div>
+
+          <!-- Hero Left & Right Roulette Navigation Buttons -->
+          <button id="btnHeroPrev" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 shadow-2xl transition-all hover:scale-110" title="Destaque Anterior">
+            <i data-lucide="chevron-left" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          </button>
+          <button id="btnHeroNext" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 shadow-2xl transition-all hover:scale-110" title="Próximo Destaque">
+            <i data-lucide="chevron-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          </button>
+
+          <!-- Top Left Badges: AO VIVO / Categoria / Addon Origin (Apple tvOS Style) -->
+          <div class="absolute top-3.5 left-4 sm:top-5 sm:left-8 z-10 flex items-center gap-2 flex-wrap">
+            <span id="heroLiveBadge" class="hidden px-2.5 py-0.5 rounded-full badge-live-apple text-[10px] font-bold tracking-wider uppercase flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>AO VIVO
+            </span>
+            <span class="tvos-glass px-2.5 sm:px-3 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium tracking-wide text-white/80 border border-white/15">
+              <span class="text-white font-medium">fidal</span><span class="logo-go">GO</span>
+              <span class="text-white/40 mx-1">•</span>
+              <span id="heroHubCategoryBadge" class="text-white">Destaque</span>
+            </span>
+            <span id="heroHubAddonBadge" class="hidden px-2.5 py-0.5 rounded-full badge-addon-origin text-[10px] sm:text-[11px]"></span>
+          </div>
+
+          <!-- Bottom Content: Metadata, Title & Clean Action Buttons -->
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-5">
+            <div class="space-y-1.5 sm:space-y-2 max-w-2xl">
+              <div class="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-white/80 flex-wrap">
+                <span id="heroHubRating" class="px-2.5 py-0.5 rounded-full badge-imdb-apple font-bold text-[10px] sm:text-xs">★ 8.7 IMDb</span>
+                <span id="heroHubYear" class="text-white/85 font-medium">2026</span>
+                <span class="text-white/30">•</span>
+                <span id="heroHubGenres" class="text-white/70 font-medium">Filme</span>
+              </div>
+
+              <h1 id="heroHubTitle" class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md line-clamp-1">
+                Carregando Destaques...
+              </h1>
+
+              <!-- Parágrafo de Sinopse ocultado para manter visual limpo e sem poluição -->
+              <p id="heroHubDescription" class="hidden"></p>
+
+              <!-- Botões de Ação Apple: [ ▶ Assistir ] e [ + Salvar ] -->
+              <div class="pt-1.5 flex items-center gap-2.5">
+                <button id="btnHeroWatchNow" class="bg-white hover:bg-white/90 text-black font-semibold px-5 sm:px-6 py-2 rounded-full text-xs sm:text-sm flex items-center gap-2 shadow-xl transition-all hover:scale-105 active:scale-95">
+                  <i data-lucide="play" class="w-3.5 h-3.5 fill-black"></i>
+                  <span>Assistir</span>
+                </button>
+                <button id="btnHeroSave" class="tvos-glass hover:bg-white/15 text-white font-medium px-4 py-2 rounded-full text-xs sm:text-sm flex items-center gap-1.5 border border-white/15 transition-all hover:scale-105 active:scale-95">
+                  <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                  <span>Salvar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Hero Carousel Quick Selector Thumbnails -->
+            <div id="heroHubIndicators" class="hidden sm:flex items-center gap-2 self-start lg:self-end"></div>
+          </div>
+        </div>
+        </div>
+
+        <!-- PALCO DO PLAYER (Canal Ao Vivo Limpo: Apenas o Vídeo) -->
+        <div id="liveStageSection" class="hidden w-full flex flex-col gap-3.5">
+          <div class="relative w-full aspect-video max-h-[75vh] lg:max-h-[84vh] bg-black rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+            <video id="videoPlayer" class="w-full h-full object-contain bg-black" controls playsinline></video>
+            <iframe
+              id="embedPlayer"
+              class="hidden w-full h-full border-0 bg-black"
+              allowfullscreen
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
+              referrerpolicy="no-referrer"
+            ></iframe>
+
+            <!-- Top Overlay inside Player: Active Channel/Title + Multi-Source Switcher -->
+            <div class="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-4 right-2.5 sm:right-4 flex items-center justify-between pointer-events-none z-10 gap-2">
+              <div class="tvos-glass-strong px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full flex items-center gap-2 pointer-events-auto border border-white/15 shrink min-w-0">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse shrink-0"></span>
+                <span id="playerBadgeNumber" class="font-mono text-xs font-bold text-purple-300 shrink-0">001</span>
+                <span id="playerBadgeName" class="text-xs font-semibold text-white truncate max-w-[100px] sm:max-w-none">Carregando...</span>
+              </div>
+
+              <div class="flex items-center gap-1.5 sm:gap-2 pointer-events-auto flex-wrap justify-end shrink-0">
+                <!-- Botão Próximo Episódio no Topo do Player (Destaque Azul) -->
+                <button id="btnNextEpisodeOverlay" class="hidden bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-extrabold px-3 sm:px-4 py-1.5 rounded-full text-xs flex items-center gap-1.5 shadow-lg shadow-blue-500/40 transition-all active:scale-95" title="Próximo Episódio">
+                  <i data-lucide="skip-forward" class="w-3.5 h-3.5 fill-white"></i>
+                  <span>Próximo Ep</span>
+                </button>
+
+                <div id="multiSourcePills" class="hidden tvos-glass-strong p-1 rounded-full flex items-center gap-1 border border-white/15"></div>
+
+                <button id="btnNextSource" class="tvos-glass-strong hover:bg-white/20 px-2 sm:px-3 py-1.5 rounded-full text-[11px] font-semibold flex items-center gap-1 border border-white/15 transition-all" title="Alternar para outra fonte de transmissão">
+                  <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <span class="hidden sm:inline">Trocar Fonte</span>
+                </button>
+                <button id="btnToggleProxy" class="tvos-glass-strong hover:bg-white/20 px-2 sm:px-3 py-1.5 rounded-full text-[11px] font-medium flex items-center gap-1 border border-white/15 transition-all" title="Proxy Anti-CORS">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span class="hidden sm:inline">Proxy Ativo</span>
+                </button>
+                <button id="btnOpenExternalPage" class="hidden tvos-glass-strong hover:bg-white/20 px-2.5 py-1.5 rounded-full text-[11px] font-semibold text-sky-300 border border-sky-400/30 transition-all">
+                  ↗
+                </button>
+                <button id="btnOpenVlc" class="tvos-glass-strong hover:bg-orange-500/30 px-2 sm:px-3 py-1.5 rounded-full text-[11px] font-medium text-orange-300 border border-orange-400/20 transition-all" title="Abrir no VLC">
+                  VLC
+                </button>
+                <button id="btnClosePlayerStage" class="tvos-glass-strong hover:bg-red-500/30 px-2.5 py-1.5 rounded-full text-[11px] font-bold text-white/80 hover:text-white border border-white/15 transition-all" title="Minimizar Player">
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <!-- Toast inside Player -->
+            <div id="playerStatusToast" class="hidden absolute bottom-5 right-5 z-20 tvos-glass-strong px-4 py-2 rounded-2xl text-xs text-white/95 border border-white/15 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+              <span id="playerStatusToastText">Conectando...</span>
+            </div>
+          </div>
+
+          <!-- Barra Inferior de EPG (Ocultada nos Canais Ao Vivo para manter apenas a lista e o vídeo) -->
+          <div id="liveEpgBar" class="hidden tvos-glass rounded-3xl p-4 border border-white/10 shadow-xl flex-col gap-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-11 h-11 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center p-1.5 shrink-0">
+                  <img id="epgChannelLogo" src="" alt="" class="max-w-full max-h-full object-contain rounded" />
+                </div>
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span id="epgProgramCategory" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white text-black">Ao Vivo</span>
+                    <span id="epgTimeSlot" class="text-xs font-mono text-white/55">Agora</span>
+                    <span class="text-xs text-white/35">•</span>
+                    <span id="epgSourceLabel" class="text-xs text-purple-300 font-medium">Saimo TV / Ramys</span>
+                  </div>
+                  <h2 id="epgProgramTitle" class="text-base sm:text-lg font-bold tracking-tight text-white truncate">
+                    Selecione um canal ou título
+                  </h2>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2.5 shrink-0 flex-wrap">
+                <!-- Botão Próximo Episódio Embaixo do Player -->
+                <button id="btnNextEpisode" class="hidden bg-white hover:bg-white/90 text-black px-4 py-2 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-xl transition-all active:scale-95 shrink-0" title="Assistir Próximo Episódio">
+                  <span>Próximo Episódio</span>
+                  <i data-lucide="skip-forward" class="w-3.5 h-3.5 fill-black"></i>
+                </button>
+
+                <div class="tvos-glass-strong px-3.5 py-1.5 rounded-2xl border border-white/10 flex items-center gap-2 shrink-0">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i>
+                  <div class="text-xs">
+                    <span class="text-white/45 font-medium">A seguir: </span>
+                    <span id="epgNextProgram" class="text-white/90 font-semibold">Programação Contínua</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p id="epgProgramSynopsis" class="text-xs text-white/65 leading-relaxed line-clamp-2">
+              Canais ao vivo dos repositórios SaimoPlayer e Ramys/Iptv-Brasil-2026 + Catálogo Stremio Cinemeta & ComandoPlay.xyz.
+            </p>
+
+            <div class="flex items-center gap-3">
+              <span id="epgElapsedLabel" class="text-[11px] font-mono text-white/50">Ao Vivo</span>
+              <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                <div id="epgProgressBar" class="h-full bg-gradient-to-r from-purple-500 via-sky-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 62%"></div>
+              </div>
+              <span id="epgRemainingLabel" class="text-[11px] font-mono text-white/50">Sinal Digital</span>
+            </div>
+          </div>
+
+          <!-- PAINEL DE TEMPORADAS E EPISÓDIOS EMBAIXO DA SÉRIE EM REPRODUÇÃO -->
+          <div id="stageSeriesSection" class="hidden tvos-glass rounded-3xl p-5 border border-white/10 shadow-2xl flex flex-col gap-4">
+            <div class="flex items-center justify-between gap-3 flex-wrap border-b border-white/10 pb-3.5">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-500/25 to-sky-500/25 border border-white/15 flex items-center justify-center shrink-0">
+                  <i data-lucide="clapperboard" class="w-5 h-5 text-sky-300"></i>
+                </div>
+                <div class="min-w-0">
+                  <h3 id="stageSeriesTitle" class="text-base sm:text-lg font-bold text-white tracking-tight truncate">Temporadas & Episódios</h3>
+                  <p id="stageSeriesSubtitle" class="text-xs text-white/50 truncate">Selecione um episódio para assistir agora</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2.5 flex-wrap">
+                <!-- Seletor de Áudio (Dublado / Legendado / Todos) Integrado ao Painel -->
+                <div id="stageAudioSelector" class="flex items-center gap-1 bg-black/40 backdrop-blur-md p-1 rounded-2xl border border-white/10 shrink-0">
+                  <button type="button" data-stage-audio="dub" class="stage-audio-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-white/70 hover:text-white cursor-pointer select-none">🇧🇷 Dublado</button>
+                  <button type="button" data-stage-audio="leg" class="stage-audio-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-white/70 hover:text-white cursor-pointer select-none">💬 Legendado</button>
+                  <button type="button" data-stage-audio="all" class="stage-audio-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-white/70 hover:text-white cursor-pointer select-none">🌐 Todos</button>
+                </div>
+
+                <!-- Botão Próximo Episódio no Rodapé da Série (Destaque Azul e Grande) -->
+                <button id="btnNextEpisodeStage" class="hidden bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-extrabold px-6 py-2.5 rounded-2xl text-sm sm:text-base shadow-xl shadow-blue-500/40 transition-all active:scale-95 flex items-center gap-2 shrink-0 cursor-pointer" title="Assistir Próximo Episódio">
+                  <i data-lucide="skip-forward" class="w-4 h-4 fill-white"></i>
+                  <span>Próximo Episódio</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- CORPO DO PAINEL: LISTA VERTICAL DE TEMPORADAS + LISTA DE EPISÓDIOS -->
+            <div class="flex flex-col md:flex-row gap-4 items-stretch mt-1">
+              <!-- Lista de Temporadas (Em formato de lista vertical estruturada, sem espalhar na tela) -->
+              <div class="w-full md:w-56 lg:w-64 shrink-0 flex flex-col gap-2">
+                <div class="flex items-center justify-between px-1">
+                  <span class="text-xs font-bold uppercase tracking-wider text-white/70 flex items-center gap-1.5">
+                    <i data-lucide="layers" class="w-3.5 h-3.5 text-sky-400"></i>
+                    <span>Temporadas</span>
+                  </span>
+                  <span id="stageSeasonTotalBadge" class="text-[11px] font-semibold text-white/40"></span>
+                </div>
+                <div id="stageSeasonList" class="flex flex-col gap-1.5 max-h-[300px] md:max-h-[500px] overflow-y-auto pr-1 select-none"></div>
+              </div>
+
+              <!-- Divisor Vertical no Desktop -->
+              <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
+
+              <!-- Lista de Episódios da Temporada Selecionada -->
+              <div class="flex-1 min-w-0 flex flex-col gap-2">
+                <div class="flex items-center justify-between px-1">
+                  <span id="stageEpisodesHeader" class="text-xs font-bold uppercase tracking-wider text-white/70 flex items-center gap-1.5">
+                    <i data-lucide="list-video" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>Episódios</span>
+                  </span>
+                </div>
+                <div id="stageEpisodesList" class="flex flex-col gap-2.5 max-h-[500px] overflow-y-auto p-1 scroll-smooth"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BARRA DE TEMAS & GÊNEROS (Exibida nas abas Filmes e Séries) -->
+        <div id="stremioGenreBar" class="hidden tvos-glass px-4 py-3 rounded-2xl flex items-center justify-between gap-2.5 shrink-0">
+          <div class="flex items-center gap-2 shrink-0">
+            <i data-lucide="compass" class="w-4 h-4 text-sky-400"></i>
+            <span class="text-xs sm:text-[13px] font-bold uppercase tracking-wider text-white/85">Temas:</span>
+          </div>
+
+          <button
+            id="btnGenreScrollLeft"
+            type="button"
+            title="Rolar temas para a esquerda"
+            class="w-7 h-7 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white/80 flex items-center justify-center shrink-0 border border-white/20 transition-all active:scale-95"
+          >
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+
+          <div class="flex-1 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth select-none cursor-grab py-0.5" id="stremioGenrePills">
+            <button data-genre="" class="genre-pill active px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold whitespace-nowrap shrink-0">Todos</button>
+            <button data-genre="Action" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Ação</button>
+            <button data-genre="Adventure" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Aventura</button>
+            <button data-genre="Comedy" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Comédia</button>
+            <button data-genre="Drama" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Drama</button>
+            <button data-genre="Sci-Fi" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Ficção Científica</button>
+            <button data-genre="Horror" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Terror</button>
+            <button data-genre="Animation" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Animação</button>
+            <button data-genre="Thriller" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Suspense</button>
+            <button data-genre="Romance" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Romance</button>
+            <button data-genre="Crime" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Policial & Crime</button>
+            <button data-genre="Fantasy" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Fantasia</button>
+            <button data-genre="Family" class="genre-pill px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] text-white/75 hover:text-white whitespace-nowrap shrink-0">Família</button>
+          </div>
+
+          <button
+            id="btnGenreScrollRight"
+            type="button"
+            title="Rolar temas para a direita"
+            class="w-7 h-7 rounded-full tvos-glass-strong hover:bg-white hover:text-black text-white/80 flex items-center justify-center shrink-0 border border-white/20 transition-all active:scale-95"
+          >
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- CARROSSÉIS HORIZONTAIS & GRADE DE DESCOBERTA (Stremio Cinemeta + ComandoPlay + Esportes) -->
+        <div id="carouselsContainer" class="flex flex-col gap-6 pb-6"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       3. STREMIO META DETAILS MODAL (Fanart HD, IMDb, Temporadas/Episódios & Streams!)
+       ======================================================================== -->
+  <div id="stremioMetaModal" class="fixed inset-0 z-50 hidden bg-black/92 flex items-center justify-center p-2 sm:p-6">
+    <div class="relative w-full max-w-6xl h-[94vh] sm:h-[86vh] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-2xl flex flex-col lg:flex-row bg-[#0b0e17]">
+      <!-- Fanart Background Image -->
+      <div id="metaModalFanart" class="absolute inset-0 bg-cover bg-center opacity-25 pointer-events-none transition-all duration-700"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0d14] via-[#0a0d14]/90 to-[#0a0d14]/75 pointer-events-none"></div>
+
+      <!-- Close Button -->
+      <button id="btnCloseMetaModal" class="absolute top-3 right-3 sm:top-5 sm:right-5 z-30 w-8 h-8 sm:w-10 sm:h-10 rounded-full tvos-glass-strong hover:bg-white/20 flex items-center justify-center text-white text-sm">
+        ✕
+      </button>
+
+      <!-- Left Column: Movie / Series Info + Season/Episode Selector -->
+      <div class="relative z-10 flex-1 p-4 sm:p-8 overflow-y-auto flex flex-col justify-between gap-5 sm:gap-6">
+        <div class="space-y-3 sm:space-y-4">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <img id="metaModalPoster" src="" alt="" class="w-20 sm:w-36 aspect-[2/3] object-cover rounded-xl sm:rounded-2xl border border-white/15 shadow-2xl shrink-0" />
+            <div class="space-y-1.5 sm:space-y-2.5 min-w-0">
+              <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                <span id="metaModalTypeBadge" class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2 sm:px-2.5 py-0.5 rounded-full bg-purple-500 text-white">FILME</span>
+                <span id="metaModalYear" class="text-xs font-semibold text-white/75">2025</span>
+                <span id="metaModalImdb" class="text-xs font-bold px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">★ 8.5 IMDb</span>
+                <span id="metaModalRuntime" class="text-xs text-white/55">120 min</span>
+              </div>
+              <h2 id="metaModalTitle" class="text-xl sm:text-3xl font-extrabold tracking-tight text-white">Título</h2>
+              <p id="metaModalGenres" class="text-xs font-medium text-purple-300"></p>
+              <p id="metaModalPlot" class="text-xs sm:text-sm text-white/75 leading-relaxed max-w-2xl"></p>
+              <p id="metaModalCast" class="text-xs text-white/45"></p>
+              <!-- Botão de Ação Direta para Assistir sem Complicações -->
+              <div class="pt-2 flex items-center gap-3">
+                <button id="btnModalDirectWatch" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-extrabold px-6 py-2.5 rounded-2xl text-sm shadow-xl shadow-blue-500/40 flex items-center gap-2 transition-all active:scale-95 cursor-pointer">
+                  <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+                  <span>Assistir Agora</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Series Season & Episodes Selector (Hidden for Movies) -->
+          <div id="metaSeriesSection" class="hidden pt-3 sm:pt-4 border-t border-white/10 space-y-3">
+            <div class="flex items-center justify-between gap-3">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-white/70">Temporadas & Episódios</h4>
+              <select id="metaSeasonSelect" class="tvos-glass-strong px-3.5 py-1.5 rounded-full text-xs text-white border border-white/15 focus:outline-none"></select>
+            </div>
+            <div id="metaEpisodesList" class="flex flex-col gap-2 max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Stremio Streams Panel (Addons + Multi-Server Embeds + ComandoPlay) -->
+      <div class="relative z-10 w-full lg:w-[390px] shrink-0 bg-black/85 border-t lg:border-t-0 lg:border-l border-white/10 p-4 sm:p-6 flex flex-col overflow-hidden max-h-[45vh] lg:max-h-none">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="play-circle" class="w-5 h-5 text-purple-400"></i>
+            <h3 class="text-sm font-bold tracking-tight">Streams Disponíveis</h3>
+          </div>
+          <span id="metaEpisodeIndicator" class="text-[11px] font-mono text-purple-300">Filme Completo</span>
+        </div>
+        <p class="text-[11px] text-white/50 mb-4">Escolha um servidor/addon abaixo para iniciar a reprodução imediatamente no player principal:</p>
+
+        <div id="metaStreamsList" class="flex-1 overflow-y-auto space-y-2.5 pr-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       4. MODAL: Addons Stremio & Repositórios IPTV
+       ======================================================================== -->
+  <div id="sourcesModal" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center p-4">
+    <div class="tvos-glass-strong border border-white/15 rounded-3xl w-full max-w-3xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="puzzle" class="w-5 h-5 text-purple-400"></i>
+          <h3 class="text-base font-bold tracking-tight">Addons Stremio & Repositórios IPTV</h3>
+        </div>
+        <button id="btnCloseSourcesModal" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-sm">✕</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-6 text-sm">
+        <!-- Active Stremio Addons -->
+        <div class="tvos-glass p-4 rounded-2xl border border-purple-500/25 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2">
+              🧩 Addons Stremio Instalados & Ativos (stremio-addons.net)
+            </span>
+            <span class="text-[11px] font-mono text-emerald-400">FrostView + Rede Canais Ativos</span>
+          </div>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 font-semibold">✓ FrostView TV (IPTV Canais Abertos & Fechados)</span>
+            <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-200 font-semibold">✓ FrostStream (Filmes & Séries PT-BR)</span>
+            <span class="px-3 py-1 rounded-full bg-red-500/20 border border-red-400/30 text-red-200 font-semibold">✓ Rede Canais (Canais Ao Vivo, Filmes & Séries)</span>
+            <span class="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-200 font-semibold">✓ BestCine (Filmes, Séries & TV)</span>
+            <span class="px-3 py-1 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-200 font-semibold">✓ FenixFlix (Filmes, Séries & Doramas)</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 font-semibold">✓ Meu Futebol (Esportes Ao Vivo)</span>
+            <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-200 font-semibold">✓ King VOD (Dublado)</span>
+            <span class="px-3 py-1 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-200 font-semibold">✓ Brazuca Torrents & MP4</span>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <input id="stremioAddonUrlInput" type="url" placeholder="Cole outra URL manifest.json ou página stremio-addons.net/addons/..." class="flex-1 tvos-glass px-3.5 py-2 rounded-xl text-xs text-white placeholder-white/40 focus:outline-none" />
+            <button id="btnAddStremioAddon" class="bg-purple-600 hover:bg-purple-500 text-white font-semibold px-4 py-2 rounded-xl text-xs transition-all">Instalar Addon</button>
+          </div>
+        </div>
+
+        <!-- Busca Direta ComandoPlay.xyz -->
+        <div class="tvos-glass p-4 rounded-2xl border border-white/15 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-semibold text-white text-xs uppercase tracking-wider">
+              🎬 Buscar no Catálogo <code>https://comandoplay.xyz/</code>
+            </span>
+            <span class="text-[11px] font-mono text-emerald-400">Online</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <input id="comandoPlayQueryInput" type="text" placeholder="Ex: Duna, Deadpool, Batman, The Last of Us..." class="flex-1 tvos-glass px-3.5 py-2 rounded-xl text-xs text-white placeholder-white/40 focus:outline-none" />
+            <button id="btnSearchComandoPlay" class="bg-white text-black font-semibold px-4 py-2 rounded-xl text-xs hover:bg-white/90 transition-all">Buscar ComandoPlay</button>
+          </div>
+        </div>
+
+        <!-- Fontes de IPTV Ativas (FrostView TV & Rede Canais) -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white/50 mb-3">Fontes de IPTV & Catálogos Conectados</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button data-repo-action="super-all" class="tvos-glass hover:bg-white/15 p-3.5 rounded-2xl border border-white/10 text-left transition-all">
+              <div class="font-semibold text-white">⚡ Sincronizar FrostView TV + Rede Canais</div>
+              <div class="text-xs text-white/55 mt-0.5">Recarrega todos os canais do FrostView TV, Rede Canais e FrostStream</div>
+            </button>
+            <button data-repo-action="frostview" class="tvos-glass hover:bg-white/15 p-3.5 rounded-2xl border border-white/10 text-left transition-all">
+              <div class="font-semibold text-white">📺 FrostView TV (stremio-addons.net/addons/frostviews)</div>
+              <div class="text-xs text-white/55 mt-0.5">Canais abertos e fechados brasileiros via addon FrostView</div>
+            </button>
+            <button data-repo-action="redecanais" class="tvos-glass hover:bg-white/15 p-3.5 rounded-2xl border border-white/10 text-left transition-all">
+              <div class="font-semibold text-white">🇧🇷 Rede Canais (Canais Ao Vivo & VOD)</div>
+              <div class="text-xs text-white/55 mt-0.5">Mantém todas as listas e transmissões do Rede Canais</div>
+            </button>
+            <button data-repo-action="froststream" class="tvos-glass hover:bg-white/15 p-3.5 rounded-2xl border border-white/10 text-left transition-all">
+              <div class="font-semibold text-white">❄️ FrostStream (stremio-addons.net/addons/froststream)</div>
+              <div class="text-xs text-white/55 mt-0.5">Catálogo de Filmes e Séries dublados/legendados PT-BR</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Importar M3U ou GitHub Repo -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="tvos-glass p-4 rounded-2xl border border-white/10 space-y-2.5">
+            <label class="text-xs font-semibold text-white/70">Escanear Repositório GitHub</label>
+            <div class="flex gap-2">
+              <input id="customGhRepoInput" type="text" value="gabrielsaimo/SaimoPlayer" placeholder="usuario/repo" class="flex-1 tvos-glass px-3 py-2 rounded-xl text-xs text-white focus:outline-none" />
+              <button id="btnScanCustomGh" class="bg-white text-black font-semibold px-3.5 py-2 rounded-xl text-xs">Escanear</button>
+            </div>
+          </div>
+
+          <div class="tvos-glass p-4 rounded-2xl border border-white/10 space-y-2.5">
+            <label class="text-xs font-semibold text-white/70">Importar URL .M3U / .M3U8 ou Arquivo</label>
+            <div class="flex gap-2">
+              <input id="customM3uUrlInput" type="url" placeholder="https://.../lista.m3u8" class="flex-1 tvos-glass px-3 py-2 rounded-xl text-xs text-white focus:outline-none" />
+              <button id="btnLoadCustomM3u" class="bg-white text-black font-semibold px-3.5 py-2 rounded-xl text-xs">Adicionar</button>
+            </div>
+            <input id="customM3uFileInput" type="file" accept=".m3u,.m3u8,.txt,.json" class="text-xs text-white/60 file:mr-3 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-white/15 file:text-white hover:file:bg-white/25" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       5. MOBILE BOTTOM NAVIGATION BAR (Barra Inferior Fixa Padrão iOS)
+       ======================================================================== -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0B0E]/95 backdrop-blur-xl border-t border-white/10 px-1 py-1 flex items-center justify-around shadow-2xl pb-[max(env(safe-area-inset-bottom),6px)]" id="mobileBottomNav">
+    <button data-nav-tab="board" class="mobile-tab-btn active flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/70 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="sparkles" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Início</span>
+    </button>
+    <button data-nav-tab="live" class="mobile-tab-btn flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/70 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="tv" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Canais</span>
+    </button>
+    <button data-nav-tab="sports" class="mobile-tab-btn flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/70 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="trophy" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Esportes</span>
+    </button>
+    <button data-nav-tab="movies" class="mobile-tab-btn flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/70 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="film" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Filmes</span>
+    </button>
+    <button data-nav-tab="series" class="mobile-tab-btn flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/70 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="clapperboard" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Séries</span>
+    </button>
+    <button data-nav-tab="anime" class="mobile-tab-btn flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/70 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="swords" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Animações</span>
+    </button>
+    <button id="btnMobileSources" class="flex flex-col items-center justify-center py-1 px-1.5 rounded-xl text-white/60 hover:text-white transition-all gap-0.5 select-none active:scale-95">
+      <i data-lucide="layers" class="w-4 h-4 sm:w-5 sm:h-5 text-purple-300"></i>
+      <span class="text-[9px] sm:text-[10px] font-medium tracking-tight">Fontes</span>
+    </button>
+  </nav>
+
+  <script src="app.js?v=20261021v15"></script>
+  <script src="tv-navigation.js?v=20261021v15"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

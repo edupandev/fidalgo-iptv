@@ -1,0 +1,17 @@
+{
+  "name": "fidalGO TV",
+  "short_name": "fidalGO",
+  "description": "fidalGO — TV Ao Vivo, Esportes, Filmes, Séries e Animes",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#08080B",
+  "theme_color": "#08080B",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

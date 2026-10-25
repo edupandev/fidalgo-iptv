@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Gradle Wrapper Script
+# Generated for Android TV Native App
+
+APP_NAME="FidalGO-TV-Native"
+APP_BASE_NAME=$(basename "$0")
+
+# Resolve links
+PRG="$0"
+while [ -h "$PRG" ] ; do
+    ls=$(ls -ld "$PRG")
+    link=$(expr "$ls" : '.*-> \(.*\)$')
+    if expr "$link" : '/.*' > /dev/null; then
+        PRG="$link"
+    else
+        PRG=$(dirname "$PRG")"/$link"
+    fi
+done
+
+SAVED="$(pwd)"
+cd "$(dirname "$PRG")/" >/dev/null
+APP_HOME="$(pwd -P)"
+cd "$SAVED" >/dev/null
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+# JVM options
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
+JAVA_OPTS="$DEFAULT_JVM_OPTS"
+
+# Determina o comando Java
+if [ -n "$JAVA_HOME" ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+        JAVACMD="$JAVA_HOME/jre/sh/java"
+    elif [ -x "$JAVA_HOME/bin/java" ] ; then
+        JAVACMD="$JAVA_HOME/bin/java"
+    fi
+fi
+
+if [ -z "$JAVACMD" ] ; then
+    JAVACMD="java"
+fi
+
+exec "$JAVACMD" $JAVA_OPTS -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"

@@ -1,0 +1,142 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.fidal.fidalgo"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Permissões de Rede e Mídia -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:7:5-67
+12-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:7:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:8:5-79
+13-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:8:22-76
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:9:5-68
+14-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:9:22-65
+15
+16    <!-- Configurações Obrigatórias para Android TV & TV Box -->
+17    <uses-feature
+17-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:12:5-14:36
+18        android:name="android.software.leanback"
+18-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:13:9-49
+19        android:required="false" />
+19-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:14:9-33
+20    <uses-feature
+20-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:15:5-17:36
+21        android:name="android.hardware.touchscreen"
+21-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:16:9-52
+22        android:required="false" />
+22-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:17:9-33
+23    <uses-feature
+23-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:18:5-20:36
+24        android:name="android.hardware.microphone"
+24-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:19:9-51
+25        android:required="false" />
+25-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:20:9-33
+26    <uses-feature
+26-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:21:5-23:36
+27        android:name="android.hardware.camera"
+27-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:22:9-47
+28        android:required="false" />
+28-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:23:9-33
+29
+30    <permission
+30-->[androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3f89fd533ae424bdec440891c733fbc6\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+31        android:name="com.fidal.fidalgo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3f89fd533ae424bdec440891c733fbc6\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3f89fd533ae424bdec440891c733fbc6\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.fidal.fidalgo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3f89fd533ae424bdec440891c733fbc6\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3f89fd533ae424bdec440891c733fbc6\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+35
+36    <application
+36-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:25:5-55:19
+37        android:allowBackup="true"
+37-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:26:9-35
+38        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+38-->[androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3f89fd533ae424bdec440891c733fbc6\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+39        android:banner="@drawable/tv_banner"
+39-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:29:9-45
+40        android:debuggable="true"
+41        android:extractNativeLibs="true"
+42        android:hardwareAccelerated="true"
+42-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:27:9-43
+43        android:icon="@mipmap/ic_launcher"
+43-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:28:9-43
+44        android:label="FIDAL GO"
+44-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:30:9-33
+45        android:supportsRtl="true"
+45-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:31:9-35
+46        android:theme="@style/Theme.FidalGoTv"
+46-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:32:9-47
+47        android:usesCleartextTraffic="true" >
+47-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:33:9-44
+48        <activity
+48-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:36:9-54:20
+49            android:name="com.fidal.fidalgo.MainActivity"
+49-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:37:13-41
+50            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|smallestScreenSize"
+50-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:39:13-106
+51            android:exported="true"
+51-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:38:13-36
+52            android:screenOrientation="landscape"
+52-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:40:13-50
+53            android:theme="@style/Theme.FidalGoTv" >
+53-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:41:13-51
+54
+55            <!-- Inicializador padrão para Celulares e Tablets -->
+56            <intent-filter>
+56-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:44:13-47:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:45:17-69
+57-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:45:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:46:17-77
+59-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:46:27-74
+60            </intent-filter>
+61
+62            <!-- Inicializador Oficial para Android TV, Fire TV e Google TV -->
+63            <intent-filter>
+63-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:50:13-53:29
+64                <action android:name="android.intent.action.MAIN" />
+64-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:45:17-69
+64-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:45:25-66
+65
+66                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+66-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:52:17-86
+66-->C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:52:27-83
+67            </intent-filter>
+68        </activity>
+69
+70        <provider
+70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+71            android:name="androidx.startup.InitializationProvider"
+71-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+72            android:authorities="com.fidal.fidalgo.androidx-startup"
+72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+73            android:exported="false" >
+73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+74            <meta-data
+74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+75                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+76                android:value="androidx.startup" />
+76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.6.0\transforms\3350c4aa0469116dafdafed4e1f31a71\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+77            <meta-data
+77-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.6.0\transforms\5a9933777eb0f9b7bdf2490b594f27af\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+78                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+78-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.6.0\transforms\5a9933777eb0f9b7bdf2490b594f27af\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+79                android:value="androidx.startup" />
+79-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.6.0\transforms\5a9933777eb0f9b7bdf2490b594f27af\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+80        </provider>
+81    </application>
+82
+83</manifest>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tv_bg_primary"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <!-- ExoPlayer View (Fullscreen) -->
+    <com.google.android.exoplayer.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        app:resize_mode="fit"
+        app:show_buffering="when_playing"
+        app:controller_layout_id="@layout/exo_playback_control_view"
+        app:use_controller="true" />
+
+    <!-- Subtitle View -->
+    <com.google.android.exoplayer.ui.SubtitleView
+        android:id="@+id/subtitle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom" />
+
+    <!-- Loading Overlay -->
+    <FrameLayout
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tv_bg_primary"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/loading_progress"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/fidalgo_accent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:text="@string/player_buffering"
+                android:textColor="@color/tv_text_secondary"
+                android:textSize="@dimen/text_size_md" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Error Overlay -->
+    <FrameLayout
+        android:id="@+id/error_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tv_bg_primary"
+        android:padding="@dimen/spacing_xl"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_xl">
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_error"
+                android:contentDescription="Erro"
+                android:tint="@color/error_red" />
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/player_error"
+                android:textColor="@color/tv_text_primary"
+                android:textSize="@dimen/text_size_xl"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/retry_button"
+                style="@style/Widget.FidalGO.FocusButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/player_retry"
+                android:minWidth="200dp" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Channel Info Overlay (Top) -->
+    <LinearLayout
+        android:id="@+id/channel_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_md"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:background="@drawable/hero_gradient_overlay">
+
+        <!-- Channel Logo -->
+        <ImageView
+            android:id="@+id/channel_info_logo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="@dimen/spacing_md"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/app_name" />
+
+        <!-- Channel Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/channel_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tv_text_primary"
+                android:textSize="@dimen/text_size_lg"
+                android:fontFamily="sans-serif-bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/program_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tv_text_secondary"
+                android:textSize="@dimen/text_size_md"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
+        <!-- Live Badge -->
+        <TextView
+            android:id="@+id/live_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_md"
+            android:paddingHorizontal="@dimen/hero_tag_padding_horizontal"
+            android:paddingVertical="@dimen/hero_tag_padding_vertical"
+            android:text="@string/live_now"
+            android:textColor="@color/tv_text_on_accent"
+            android:textSize="@dimen/text_size_sm"
+            android:fontFamily="sans-serif-bold"
+            android:background="@color/live_red"
+            android:visibility="gone" />
+
+</LinearLayout>
+
+    <!-- Controls Overlay Hint (Bottom) -->
+    <TextView
+        android:id="@+id/controls_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/spacing_xl"
+        android:paddingHorizontal="@dimen/spacing_lg"
+        android:paddingVertical="@dimen/spacing_sm"
+        android:text="↑ Configurações  ←/→ Navegar  OK Play/Pause"
+        android:textColor="@color/tv_text_muted"
+        android:textSize="@dimen/text_size_sm"
+        android:background="@color/tv_bg_overlay"
+        android:visibility="gone" />
+
+</FrameLayout>

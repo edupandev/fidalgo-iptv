@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Test Profile and Continue Watching</title></head>
+<body style="margin:0; background:#0B0B0E;">
+    <iframe id="app" src="/index.html#profile" style="width:1600px; height:1200px; border:none;"></iframe>
+    <script>
+        window.onload = () => {
+            const frame = document.getElementById('app');
+            setTimeout(() => {
+                const win = frame.contentWindow;
+                const doc = frame.contentDocument;
+
+                // 1. Simular progresso de filme e serie
+                win.NuvioAccountManager.saveProgress({
+                    id: 'tt0111161',
+                    imdbId: 'tt0111161',
+                    title: 'Um Sonho de Liberdade',
+                    type: 'movie',
+                    poster: 'https://images.metahub.space/poster/medium/tt0111161/img',
+                    banner: 'https://images.metahub.space/background/medium/tt0111161/img'
+                }, 2700, 8520);
+
+                win.NuvioAccountManager.saveProgress({
+                    id: 'tt0903747',
+                    imdbId: 'tt0903747',
+                    title: 'Breaking Bad',
+                    type: 'series',
+                    season: 1,
+                    episode: 3,
+                    episodeTitle: 'E o Saco EstÃ¡ no Rio...',
+                    poster: 'https://images.metahub.space/poster/medium/tt0903747/img',
+                    banner: 'https://images.metahub.space/background/medium/tt0903747/img'
+                }, 1680, 2880);
+
+                // Renderiza conteudo do perfil
+                win.renderNuvioAccountModalContent();
+            }, 1500);
+        };
+    </script>
+</body>
+</html>

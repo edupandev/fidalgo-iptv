@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Test Continuar Assistindo Rail</title></head>
+<body style="margin:0; background:#0B0B0E;">
+    <script>
+        const sampleHistory = [
+            {
+                id: 'tt0111161',
+                title: 'Um Sonho de Liberdade',
+                type: 'movie',
+                currentTime: 2700,
+                duration: 8520,
+                percentage: 32,
+                poster: 'https://images.metahub.space/poster/medium/tt0111161/img',
+                banner: 'https://images.metahub.space/background/medium/tt0111161/img',
+                addon: 'FrostStream â€¢ Nuvio'
+            },
+            {
+                id: 'tt0903747',
+                title: 'Breaking Bad',
+                type: 'series',
+                season: 1,
+                episode: 3,
+                episodeTitle: 'E o Saco EstÃ¡ no Rio...',
+                currentTime: 1680,
+                duration: 2880,
+                percentage: 58,
+                poster: 'https://images.metahub.space/poster/medium/tt0903747/img',
+                banner: 'https://images.metahub.space/background/medium/tt0903747/img',
+                addon: 'FenixFlix â€¢ Nuvio'
+            }
+        ];
+        localStorage.setItem('nuvio_history_nuvio-profile-vipcanais', JSON.stringify(sampleHistory));
+    </script>
+    <iframe id="app" src="/index.html#board" style="width:1600px; height:1200px; border:none;"></iframe>
+</body>
+</html>

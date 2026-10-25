@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<iframe id="appFrame" src="http://127.0.0.1:3080/" style="width:1280px;height:800px;border:0;"></iframe>
+<script>
+window.addEventListener('message', (e) => console.log(e.data));
+setTimeout(() => {
+  try {
+    const doc = document.getElementById('appFrame').contentDocument;
+    const win = document.getElementById('appFrame').contentWindow;
+    console.log('App loaded! Navigating to movies...');
+    win.switchTab('movies');
+    setTimeout(() => {
+      const cards = doc.querySelectorAll('#carouselsContainer .vod-card');
+      console.log('Movies cards count:', cards.length);
+      console.log('Now testing series...');
+      win.switchTab('series');
+      setTimeout(() => {
+        const seriesCards = doc.querySelectorAll('#carouselsContainer .vod-card');
+        console.log('Series cards count:', seriesCards.length);
+      }, 1000);
+    }, 1000);
+  } catch(err) {
+    console.error('Frame error:', err.message);
+  }
+}, 3000);
+</script>
+</body>
+</html>

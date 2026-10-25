@@ -1,0 +1,71 @@
+<resources>
+    <!-- Tema base para Android TV (Leanback) -->
+    <style name="Theme.FidalGO.TV" parent="Theme.Leanback">
+        <item name="colorPrimary">@color/fidalgo_purple</item>
+        <item name="colorPrimaryVariant">@color/fidalgo_purple_dark</item>
+        <item name="colorOnPrimary">@color/tv_text_primary</item>
+        <item name="colorSecondary">@color/fidalgo_accent</item>
+        <item name="colorSecondaryVariant">@color/fidalgo_purple_light</item>
+        <item name="colorOnSecondary">@color/tv_text_on_accent</item>
+        <item name="android:windowBackground">@color/tv_bg_primary</item>
+        <item name="android:colorBackground">@color/tv_bg_primary</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:navigationBarColor">@color/tv_bg_primary</item>
+        <item name="android:statusBarColor">@color/tv_bg_primary</item>
+    </style>
+
+    <!-- Tema fullscreen para a Activity principal -->
+    <style name="Theme.FidalGO.TV.Fullscreen" parent="Theme.FidalGO.TV">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Estilo para cards de canal (Glassmorphism) -->
+    <style name="Widget.FidalGO.ChannelCard" parent="Widget.Leanback.CardView">
+        <item name="android:background">@drawable/channel_card_background</item>
+        <item name="android:layout_width">@dimen/channel_card_width</item>
+        <item name="android:layout_height">@dimen/channel_card_height</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <!-- Estilo para pílulas de categoria (Segmented Control) -->
+    <style name="Widget.FidalGO.CategoryPill" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/category_pill_bg_selector</item>
+        <item name="android:textColor">@color/category_pill_text_selector</item>
+        <item name="chipCornerRadius">24dp</item>
+        <item name="chipMinHeight">40dp</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Estilo para botões de foco TV -->
+    <style name="Widget.FidalGO.FocusButton" parent="Widget.Leanback.Button">
+        <item name="android:background">@drawable/tv_focus_selector</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/tv_text_selector</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Hero Preview Styles -->
+    <style name="Widget.FidalGO.HeroPreview" parent="Widget.Leanback.ImageCardView">
+        <item name="android:foreground">@drawable/hero_gradient_overlay</item>
+    </style>
+
+    <!-- Progress Bar EPG -->
+    <style name="Widget.FidalGO.EPGProgress" parent="Widget.MaterialComponents.ProgressIndicator.Horizontal">
+        <item name="indicatorColor">@color/live_red</item>
+        <item name="trackColor">@color/tv_text_muted</item>
+        <item name="trackThickness">3dp</item>
+        <item name="indicatorSize">3dp</item>
+    </style>
+
+    <!-- Player Controls -->
+    <style name="Widget.FidalGO.PlayerControl" parent="Widget.MaterialComponents.Button.IconOnly">
+        <item name="android:background">@drawable/player_control_background</item>
+        <item name="iconTint">@color/tv_text_primary</item>
+        <item name="iconSize">28dp</item>
+    </style>
+</resources>

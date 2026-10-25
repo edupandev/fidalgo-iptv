@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">fidalGO TV</string>
+    <string name="app_name_short">fidalGO</string>
+    <string name="asset_statements" translatable="false">
+        [{
+            "relation": ["delegate_permission/common.handle_all_urls"],
+            "target": {
+                "namespace": "web",
+                "site": "https://fidalgotv.ngrok.app"
+            }
+        }]
+    </string>
+
+    <!-- Categorias de canais -->
+    <string name="category_all">Todos</string>
+    <string name="category_favorites">Favoritos</string>
+    <string name="category_sports">Esportes</string>
+    <string name="category_open">Abertos</string>
+    <string name="category_movies_series">Filmes & Séries</string>
+    <string name="category_news">Notícias</string>
+    <string name="category_kids">Infantis</string>
+    <string name="category_variety">Variedades</string>
+    <string name="category_music">Música</string>
+    <string name="category_documentary">Documentários</string>
+    <string name="category_religious">Religiosos</string>
+
+    <!-- Estados -->
+    <string name="live_now">AO VIVO</string>
+    <string name="loading">Carregando canais...</string>
+    <string name="error_no_connection">Sem conexão com a internet</string>
+    <string name="error_server_unreachable">Servidor não acessível</string>
+    <string name="error_loading">Erro ao carregar</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="no_channels">Nenhum canal encontrado</string>
+    <string name="now_playing">Passando agora: %s</string>
+    <string name="program_progress">%d%% concluído</string>
+
+    <!-- Player -->
+    <string name="player_buffering">Carregando stream...</string>
+    <string name="player_error">Erro na reprodução</string>
+    <string name="player_retry">Tentar novamente</string>
+    <string name="player_live">AO VIVO</string>
+    <string name="player_settings">Configurações</string>
+    <string name="player_audio_tracks">Faixas de áudio</string>
+    <string name="player_subtitles">Legendas</string>
+    <string name="player_quality">Qualidade</string>
+    <string name="player_cast">Transmitir</string>
+
+    <!-- Search -->
+    <string name="search_hint">Buscar canais, filmes, séries...</string>
+    <string name="search_no_results">Nenhum resultado encontrado</string>
+</resources>

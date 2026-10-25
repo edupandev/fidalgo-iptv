@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>fidalGO TV D-Pad & OSD Verification</title>
+</head>
+<body style="margin:0; background:#000; overflow:hidden;">
+  <iframe id="app" src="/index.html" style="width:1920px; height:1080px; border:none;"></iframe>
+  <script>
+    window.onload = async () => {
+      const frame = document.getElementById('app');
+      await new Promise(r => setTimeout(r, 2000));
+      const win = frame.contentWindow;
+      const doc = frame.contentDocument;
+
+      // Localiza o card do canal e clica para abrir o palco
+      const card = doc.querySelector('.channel-card');
+      if (card) {
+        console.log('Clicando no primeiro canal...');
+        card.click();
+      }
+
+      await new Promise(r => setTimeout(r, 2000));
+
+      // Exibe OSD de controle remoto e foca o botão de áudio/legendas (CC)
+      if (win.TVNavigation) {
+        win.TVNavigation.showPlayerOsd('+10s', '⏩');
+
+        const ccBtn = doc.getElementById('btnPlayerAudioSubs');
+        if (ccBtn) {
+          win.TVNavigation.setFocus(ccBtn, false);
+        }
+      }
+    };
+  </script>
+</body>
+</html>

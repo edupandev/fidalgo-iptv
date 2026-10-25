@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.leanback.widget.ImageCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/hero_card"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:cardType="infoUnderWithExtra"
+    android:background="@color/tv_bg_primary"
+    android:foreground="@drawable/hero_gradient_overlay">
+
+    <!-- Background Image / Stream Preview -->
+    <ImageView
+        android:id="@+id/hero_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/app_name" />
+
+    <!-- Gradient Overlay (Left to Right + Bottom to Top) -->
+    <View
+        android:id="@+id/hero_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/hero_gradient_overlay" />
+
+    <!-- Content Area (Bottom Left) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:padding="@dimen/hero_preview_padding">
+
+        <!-- Live Badge -->
+        <TextView
+            android:id="@+id/hero_live_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/hero_tag_padding_horizontal"
+            android:paddingVertical="@dimen/hero_tag_padding_vertical"
+            android:text="@string/live_now"
+            android:textColor="@color/tv_text_on_accent"
+            android:textSize="@dimen/text_size_sm"
+            android:fontFamily="sans-serif-bold"
+            android:background="@color/live_red"
+            android:visibility="gone" />
+
+        <!-- Program Title -->
+        <TextView
+            android:id="@+id/hero_program_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:textColor="@color/tv_text_primary"
+            android:textSize="@dimen/text_size_hero"
+            android:fontFamily="sans-serif-bold"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- Channel Name -->
+        <TextView
+            android:id="@+id/hero_channel_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textColor="@color/tv_text_secondary"
+            android:textSize="@dimen/text_size_lg"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- EPG Progress Bar -->
+        <ProgressBar
+            android:id="@+id/hero_epg_progress"
+            style="@style/Widget.FidalGO.EPGProgress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/epg_progress_height"
+            android:layout_marginTop="@dimen/hero_epg_progress_margin_top"
+            android:visibility="gone" />
+
+        <!-- EPG Progress Text -->
+        <TextView
+            android:id="@+id/hero_epg_progress_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textColor="@color/tv_text_muted"
+            android:textSize="@dimen/text_size_xs"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- Channel Logo (Bottom Right) -->
+    <ImageView
+        android:id="@+id/hero_channel_logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/spacing_lg"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/app_name"
+        android:visibility="gone" />
+
+</androidx.leanback.widget.ImageCardView>

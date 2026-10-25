@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Test Movie Stage</title></head>
+<body style="margin:0; background:#000;">
+    <iframe id="app" src="/index.html#movies" style="width:1600px; height:1200px; border:none;"></iframe>
+    <script>
+        window.onload = () => {
+            const frame = document.getElementById('app');
+            setTimeout(() => {
+                const win = frame.contentWindow;
+                win.playMovieDirect({
+                    title: 'Homem-Aranha: Um Novo Dia',
+                    imdbId: 'tt0111161',
+                    year: '2026',
+                    badge: '8.8',
+                    poster: 'https://images.metahub.space/poster/medium/tt0111161/img',
+                    genres: ['AÃ§Ã£o', 'Aventura', 'FicÃ§Ã£o CientÃ­fica'],
+                    description: 'Peter Parker enfrenta novos desafios multiversais com a chegada de uma nova ameaÃ§a cÃ³smica.'
+                });
+            }, 2500);
+        };
+    </script>
+</body>
+</html>

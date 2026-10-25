@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>fidalGO TV Catalog Focus</title>
+  <style>
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+    #appFrame { width: 100vw; height: 100vh; border: none; }
+  </style>
+</head>
+<body>
+  <iframe id="appFrame" src="/index.html"></iframe>
+  <script>
+    window.addEventListener('load', async () => {
+      const frame = document.getElementById('appFrame');
+      
+      // Aguarda os canais estarem carregados
+      let win, doc, card;
+      for (let i = 0; i < 25; i++) {
+        await new Promise(r => setTimeout(r, 300));
+        win = frame.contentWindow;
+        doc = frame.contentDocument;
+        if (win && doc) {
+          card = doc.querySelector('.channel-card');
+          if (card) break;
+        }
+      }
+
+      if (card && win && win.TVNavigation) {
+        win.TVNavigation.setFocus(card, true);
+        console.log('Card focado:', card);
+      }
+    });
+  </script>
+</body>
+</html>

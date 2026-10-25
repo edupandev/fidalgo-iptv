@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.errors = [];
+        window.onerror = function(msg, url, line, col, error) {
+            var err = "ERROR: " + msg + " at " + line + ":" + col;
+            window.errors.push(err);
+            document.title = err;
+            console.error(err);
+        };
+    </script>
+    <script src="/app.js"></script>
+</head>
+<body>
+    <div id="test-result">Starting test...</div>
+    <script>
+        setTimeout(function() {
+            var div = document.getElementById("test-result");
+            if (window.errors && window.errors.length > 0) {
+                div.innerHTML = "ERRORS FOUND:<br>" + window.errors.join("<br>");
+            } else {
+                div.innerHTML = "NO SYNTAX ERRORS in app.js! DOMContentLoaded status: " + (typeof renderAll);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

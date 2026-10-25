@@ -1,0 +1,992 @@
+/* ==========================================================================
+   Apple tvOS & iOS Human Interface Guidelines — Design System "fidalGO"
+   ========================================================================== */
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-start: #0B0B0E;
+  --bg-end: #0E0E12;
+  --nuvio-accent: #8B5CF6;
+  --nuvio-cyan: #06B6D4;
+  --nuvio-amoled: #050507;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(18, 22, 32, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-focus: #ffffff;
+  --live-red: #FF3B30;
+  --imdb-gold: #E5A916;
+  --apple-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Inter", sans-serif;
+  --apple-font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Inter", sans-serif;
+  --apple-font-mono: 'SF Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+}
+
+.tvos-body {
+  background: radial-gradient(circle at 50% 0%, #151926 0%, var(--bg-start) 65%, var(--bg-end) 100%);
+  font-family: var(--apple-font-sans);
+  letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .apple-display-font {
+  font-family: var(--apple-font-display);
+  letter-spacing: -0.024em;
+}
+
+/* ==========================================================================
+   1. IDENTIDADE VISUAL & LOGO ("fidalGO")
+   ========================================================================== */
+.logo-go {
+  background: linear-gradient(135deg, #E6E8EC 0%, #A6A9B2 45%, #FFFFFF 55%, #7D808A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.fidalgo-emblem {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(166, 169, 178, 0.25) 50%, rgba(20, 24, 34, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ambient-backdrop {
+  background:
+    radial-gradient(circle at 65% 15%, rgba(255, 255, 255, 0.04), transparent 50%),
+    radial-gradient(circle at 20% 75%, rgba(99, 102, 241, 0.04), transparent 45%);
+}
+
+/* ==========================================================================
+   2. SUPERFÍCIES DE VIDRO & SEGMENTED CONTROL (APPLE)
+   ========================================================================== */
+.apple-top-header {
+  background: rgba(11, 11, 14, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.tvos-glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.tvos-glass-strong {
+  background: var(--glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Apple Segmented Control Tabs */
+.segmented-control-container {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-pill {
+  font-family: var(--apple-font-display);
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-pill:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-pill.active {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+}
+
+.cat-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.18s ease;
+}
+
+.cat-chip:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cat-chip.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+}
+
+/* Left Navigation Rail & Genre Pills */
+.rail-btn.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+}
+
+.genre-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.18s ease;
+}
+
+.genre-pill.active {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  border-color: #ffffff;
+}
+
+.stremio-stream-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  transition: all 0.18s ease;
+}
+
+.stremio-stream-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   3. CARDS DE CANAIS & CARROSSÉIS VOD (ESTILO APPLE TV)
+   ========================================================================== */
+.channel-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.18s ease,
+              border-color 0.18s ease;
+  will-change: transform;
+}
+
+.channel-card:hover,
+.channel-card:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+  outline: none;
+}
+
+.channel-card.active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Cartões de Filmes e Séries (Carrosséis Estilo Apple TV+) */
+.vod-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+.vod-card:hover,
+.vod-card:focus-visible,
+.vod-card.tv-focused {
+  transform: scale(1.05) translateY(-2px) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 2px #ffffff, 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 255, 255, 0.4) !important;
+  outline: none !important;
+  z-index: 25 !important;
+}
+
+/* Badges Apple: Live Red & IMDb Gold & Addon Origin */
+.badge-live-apple {
+  background: var(--live-red);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-imdb-apple {
+  background: rgba(229, 169, 22, 0.16);
+  color: var(--imdb-gold);
+  border: 1px solid rgba(229, 169, 22, 0.35);
+  font-weight: 700;
+}
+
+.badge-addon-origin {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Rolagem Global Padrão Navegador & Apple tvOS (Scrollbar Visível, Arrastável e Fluida) */
+html, body {
+  min-height: 100%;
+  height: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) rgba(10, 10, 14, 0.5);
+}
+
+main {
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 0;
+}
+
+#rightScrollSection {
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 14, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   ROLETAS & LISTAS HORIZONTAIS DE CARDS (ROW / CAROUSEL FLEX ESTRITO)
+   ========================================================================== */
+.roleta-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE e Edge */
+  padding-bottom: 0.75rem;
+  padding-top: 0.375rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  gap: 1rem;
+  cursor: grab;
+  user-select: none;
+}
+
+.roleta-track::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.roleta-track.roleta-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto !important;
+}
+
+/* Card Individual de Conteúdo / Canal / Filme */
+.roleta-track > .vod-card,
+.vod-card {
+  flex: 0 0 auto !important;
+  width: clamp(140px, 18vw, 200px) !important;
+  max-width: none !important;
+  scroll-snap-align: start;
+}
+
+.roleta-track > .vod-card.landscape-card,
+.vod-card.landscape-card {
+  flex: 0 0 auto !important;
+  width: clamp(180px, 22vw, 260px) !important;
+}
+
+.roleta-arrow-btn {
+  background: rgba(18, 22, 32, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roleta-arrow-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ==========================================================================
+   PALCO DO PLAYER E ABA DE SÉRIES / TEMPORADAS & EPISÓDIOS
+   ========================================================================== */
+#livePlayerBox {
+  width: 100% !important;
+  max-width: 1100px !important;
+  aspect-ratio: 16 / 9 !important;
+  max-height: 52vh !important;
+  height: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#liveStageSection {
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+#stageSeriesSection {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+#stageSeasonList {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  max-height: calc(100vh - 360px) !important;
+  min-height: 220px;
+}
+
+#stageEpisodesList {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  max-height: calc(100vh - 360px) !important;
+  min-height: 220px;
+}
+
+/* ==========================================================================
+   4. FOCO ESPECIAL DE CONTROLE REMOTO (ENGINE PURO APPLE tvOS)
+   ========================================================================== */
+.tv-focused {
+  outline: none !important;
+  transform: scale(1.06) translateZ(0) !important;
+  box-shadow: 0 0 0 2.5px #ffffff, 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 24px rgba(255, 255, 255, 0.35) !important;
+  z-index: 50 !important;
+  border-color: #ffffff !important;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.16s ease !important;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE NATIVA: ANDROID TV / DESKTOP WIDESCREEN vs SMARTPHONE
+   ========================================================================== */
+@media screen and (min-width: 769px) {
+  #mobileBottomNav {
+    display: none !important;
+  }
+  #mainNavTabs {
+    display: flex !important;
+  }
+  main {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    padding: 1rem 1.5rem !important;
+  }
+  #channelSidebar {
+    display: none !important;
+  }
+  #rightScrollSection {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    flex: none !important;
+  }
+}
+
+/* Smartphones & Dispositivos Móveis (max-width: 768px) */
+@media (max-width: 768px) {
+  html, body {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  /* Header com rolagem horizontal suave */
+  header.apple-top-header {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+  header.apple-top-header::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  #mainNavTabs {
+    display: flex !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex-shrink: 0 !important;
+  }
+  #mainNavTabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Layout principal em coluna única sem barras laterais ocupando espaço horizontal */
+  main {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    padding: 0.5rem !important;
+  }
+
+  #channelSidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+    height: auto !important;
+    max-height: 48vh !important;
+    flex-shrink: 0 !important;
+  }
+
+  #rightScrollSection {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Player no mobile com proporção aspect-video e max-height: 35vh */
+  #livePlayerBox {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 35vh !important;
+    aspect-ratio: 16 / 9 !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Cards da lista horizontal reduzidos proporcionalmente */
+  .roleta-track > .vod-card,
+  .vod-card {
+    flex: 0 0 auto !important;
+    width: clamp(120px, 34vw, 140px) !important;
+  }
+
+  .roleta-track > .vod-card.landscape-card,
+  .vod-card.landscape-card {
+    flex: 0 0 auto !important;
+    width: clamp(150px, 44vw, 190px) !important;
+  }
+
+  .roleta-arrow-btn {
+    display: none !important;
+  }
+
+  #stageSeasonList,
+  #stageEpisodesList {
+    max-height: 45vh !important;
+  }
+}
+
+.vod-card.active-playing-channel {
+  border: 2px solid #a855f7 !important;
+  box-shadow: 0 0 22px rgba(168, 85, 247, 0.5) !important;
+  transform: scale(1.02);
+}
+
+.mobile-tab-btn {
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.18s ease;
+}
+
+.mobile-tab-btn.active {
+  color: #ffffff !important;
+}
+
+.mobile-tab-btn.active svg {
+  stroke: #ffffff !important;
+}
+
+/* ==========================================================================
+   Nuvio Account Manager (techuhak/Nuvio-Account-Manager) & Watch Progress
+   ========================================================================== */
+.continue-progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  z-index: 10;
+}
+
+.continue-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #FF3B30 0%, #FF6259 100%);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(255, 59, 48, 0.85);
+  transition: width 0.3s ease;
+}
+
+/* Painel Lateral HUD de Áudio e Ajustes (Saimo-TV / Apple Glass Slide-Over) */
+#playerAudioSubsDrawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(370px, 92vw);
+  background: rgba(11, 14, 23, 0.94);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: -14px 0 40px rgba(0, 0, 0, 0.88);
+  z-index: 35;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#playerAudioSubsDrawer.is-hidden {
+  transform: translateX(100%);
+  pointer-events: none;
+}
+
+.hud-opt-btn {
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 0.18s ease;
+}
+
+.hud-opt-btn:hover,
+.hud-opt-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+  outline: none;
+}
+
+.hud-opt-btn.active {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: #34d399;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+}
+
+.hud-step-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.hud-step-btn:hover,
+.hud-step-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  outline: none;
+}
+
+/* Super Resolução (Upscaling via Filtro de Convolução SVG Saimo-TV) */
+html[data-upscaling="hd"] #videoPlayer:not([data-nativo="1"]),
+html[data-upscaling="hd"] #liveVideo:not([data-nativo="1"]),
+html[data-upscaling="hd"] #playerVideoStage video {
+  filter: url(#saimo-upscale-hd) contrast(1.02) saturate(1.03);
+}
+
+html[data-upscaling="4k"] #videoPlayer:not([data-nativo="1"]),
+html[data-upscaling="4k"] #liveVideo:not([data-nativo="1"]),
+html[data-upscaling="4k"] #playerVideoStage video {
+  filter: url(#saimo-upscale-4k) contrast(1.04) saturate(1.05);
+}
+
+/* Cards de Episódios em Widescreen (16:9) */
+.stage-episode-card {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  opacity: 0.75;
+}
+
+.stage-episode-card:hover,
+.stage-episode-card:focus-visible,
+.stage-episode-card.is-active-episode {
+  opacity: 1 !important;
+}
+
+.stage-episode-card.is-active-episode {
+  transform: scale(1.015);
+  border-color: #34d399 !important;
+  box-shadow: 0 0 0 1.5px #34d399, 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+
+.card-fav-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.card-fav-btn:hover {
+  transform: scale(1.15);
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.card-fav-btn.is-favorite {
+  background: rgba(236, 72, 153, 0.35);
+  border-color: rgba(244, 114, 182, 0.8);
+  opacity: 1;
+}
+
+.card-fav-btn.is-favorite svg {
+  fill: #f43f5e;
+  stroke: #f43f5e;
+}
+
+.card-remove-history-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 20;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.vod-card:hover .card-remove-history-btn {
+  opacity: 1;
+}
+
+.card-remove-history-btn:hover {
+  background: rgba(239, 68, 68, 0.8);
+  transform: scale(1.1);
+}
+
+.nuvio-account-tab-btn {
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.nuvio-account-tab-btn.active {
+  border-color: #8B5CF6;
+  color: #ffffff;
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* ==========================================================================
+   Estilização Visual da Legenda (Apple tvOS Style Subtitles & WebVTT)
+   ========================================================================== */
+::cue {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+
+video::cue {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+
+#subtitleOverlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  z-index: 25 !important;
+}
+
+#subtitleOverlay.hidden {
+  display: none !important;
+}
+
+.tvos-sub-badge {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+   6. FIDAL GO TV: OTIMIZAÇÃO & NAVEGAÇÃO ANDROID TV / SMART TV (D-PAD)
+   ========================================================================== */
+
+/* Prevenção de Cortes (Overscan Protection Margins) */
+@media screen and (min-width: 900px) {
+  body {
+    padding: 3vh 3.5vw !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Aceleração otimizada para Smart TV Box / TV Stick (Prevenção de estouro de GPU VRAM) */
+.tv-focused,
+.focused {
+  will-change: transform, box-shadow;
+}
+
+/* Substituição de Blurs Pesados em TVs e Hardware Limitado (Mi Stick, Fire TV) */
+body.tv-device .tvos-glass {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(15, 15, 20, 0.95) !important;
+}
+
+body.tv-device .tvos-glass-strong {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(10, 10, 15, 0.98) !important;
+}
+
+/* No Android TV / TV Stick: Garante que o Header e Tabs fiquem SEMPRE visíveis e o menu mobile suma */
+body.tv-device #mainNavTabs,
+#mainNavTabs {
+  display: flex !important;
+}
+
+body.tv-device nav.md\:hidden,
+body.tv-device #mobileBottomNav,
+nav.mobile-bottom-nav {
+  display: none !important;
+}
+
+/* Estados de Foco Visual do Controle Remoto (:focus, :focus-visible, .tv-focused, .focused) */
+:focus-visible,
+.tv-focused,
+.focused {
+  outline: 4px solid #38bdf8 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.95), 0 0 50px rgba(56, 189, 248, 0.6) !important;
+  z-index: 50 !important;
+  transition: transform 0.1s ease-out !important;
+}
+
+#mainNavTabs button.tv-focused,
+#mainNavTabs button.focused,
+#mainNavTabs button:focus-visible,
+.nav-pill.tv-focused,
+.nav-pill.focused,
+[data-nav-tab].tv-focused,
+[data-nav-tab].focused {
+  outline: 4px solid #38bdf8 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.95), 0 0 40px rgba(56, 189, 248, 0.6) !important;
+  background: rgba(56, 189, 248, 0.4) !important;
+  color: #FFFFFF !important;
+  z-index: 50 !important;
+}
+
+#btnHeroWatchNow.tv-focused,
+#btnHeroWatchNow:focus,
+#btnHeroWatchNow.focused {
+  outline: 5px solid #38bdf8 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 35px rgba(56, 189, 248, 1), 0 0 60px rgba(56, 189, 248, 0.7) !important;
+  z-index: 50 !important;
+}
+
+#btnHeroPrev.tv-focused,
+#btnHeroPrev:focus,
+#btnHeroNext.tv-focused,
+#btnHeroNext:focus {
+  outline: 4px solid #38bdf8 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.9) !important;
+  z-index: 50 !important;
+}
+
+.vod-card:focus,
+.vod-card:focus-visible,
+.vod-card.tv-focused,
+.vod-card.focused {
+  outline: 4px solid #38bdf8 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 1), 0 0 60px rgba(56, 189, 248, 0.6) !important;
+  z-index: 40 !important;
+}
+
+.channel-card:focus,
+.channel-card:focus-visible,
+.channel-card.tv-focused,
+.channel-card.focused {
+  outline: 4px solid #38bdf8 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 1), 0 0 60px rgba(56, 189, 248, 0.6) !important;
+  z-index: 40 !important;
+}
+
+.stage-episode-card:focus,
+.stage-episode-card:focus-visible,
+.stage-episode-card.tv-focused {
+  border: 3px solid #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.02) translate3d(0, 0, 0) !important;
+  outline: none !important;
+  z-index: 25 !important;
+}
+
+.stremio-stream-card:focus,
+.stremio-stream-card:focus-visible,
+.stremio-stream-card.tv-focused {
+  border: 3px solid #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.02) translate3d(0, 0, 0) !important;
+  outline: none !important;
+  z-index: 25 !important;
+}
+
+.nav-pill:focus,
+.nav-pill:focus-visible,
+.nav-pill.tv-focused {
+  border: 3px solid #FFFFFF !important;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.06) translate3d(0, 0, 0) !important;
+  outline: none !important;
+}
+
+.cat-chip:focus,
+.cat-chip:focus-visible,
+.cat-chip.tv-focused {
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.05) translate3d(0, 0, 0) !important;
+  outline: none !important;
+}
+
+/* Player Inteligente: Ocultação automática de controles após 4s de inatividade */
+#livePlayerBox.tv-hud-hidden > div.absolute.top-2\.5,
+#livePlayerBox.tv-hud-hidden > div.absolute.top-3\.5,
+#livePlayerBox.tv-hud-hidden #playerStatusToast {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-12px) !important;
+}
+
+#livePlayerBox > div.absolute.top-2\.5,
+#livePlayerBox > div.absolute.top-3\.5 {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* OSD de Feedback do Controle Remoto (Seek +10s / -10s, Play / Pause) */
+.tv-osd-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: rgba(10, 10, 15, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85), 0 0 24px rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.tv-osd-badge.tv-osd-hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+}

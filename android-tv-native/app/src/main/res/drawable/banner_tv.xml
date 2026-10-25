@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Banner para Android TV (320x180 dp) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+    <!-- Background -->
+    <path
+        android:fillColor="@color/fidalgo_purple"
+        android:pathData="M0,0h320v180h-320z" />
+    <!-- Accent stripe -->
+    <path
+        android:fillColor="@color/fidalgo_accent"
+        android:pathData="M0,0h320v180h-320z" />
+    <!-- Logo area -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,60 L40,120 M40,90 L70,90" />
+    <!-- Simplified icon representation -->
+    <path
+        android:fillColor="@color/fidalgo_accent"
+        android:pathData="M240,50 L280,50 L280,130 L240,130 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M250,70 L270,70 L270,110 L250,110 Z" />
+</vector>

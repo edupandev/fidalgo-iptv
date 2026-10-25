@@ -1,0 +1,24 @@
+com.fidal.fidalgo.app-lifecycle-process-2.4.1-0 C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\res
+com.fidal.fidalgo.app-appcompat-resources-1.6.1-1 C:\Users\fidal\.gradle\caches\9.0.0\transforms\140cab84ba8b96869dccad430952c7a3\transformed\appcompat-resources-1.6.1\res
+com.fidal.fidalgo.app-appcompat-1.6.1-2 C:\Users\fidal\.gradle\caches\9.0.0\transforms\38072a331eed77241ac0a6f46bfb33ca\transformed\appcompat-1.6.1\res
+com.fidal.fidalgo.app-annotation-experimental-1.3.0-3 C:\Users\fidal\.gradle\caches\9.0.0\transforms\4e0f8c991edf3e62591c7e6edb8e1463\transformed\annotation-experimental-1.3.0\res
+com.fidal.fidalgo.app-emoji2-1.2.0-4 C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\res
+com.fidal.fidalgo.app-lifecycle-viewmodel-savedstate-2.5.1-5 C:\Users\fidal\.gradle\caches\9.0.0\transforms\5d9ef6c0dd2306f2700fd978beffd1b5\transformed\lifecycle-viewmodel-savedstate-2.5.1\res
+com.fidal.fidalgo.app-lifecycle-viewmodel-2.5.1-6 C:\Users\fidal\.gradle\caches\9.0.0\transforms\6c5924b341db128105821691e4996cd8\transformed\lifecycle-viewmodel-2.5.1\res
+com.fidal.fidalgo.app-lifecycle-runtime-2.5.1-7 C:\Users\fidal\.gradle\caches\9.0.0\transforms\6dc41d8bcd2913f465b763cb9c840778\transformed\lifecycle-runtime-2.5.1\res
+com.fidal.fidalgo.app-savedstate-1.2.0-8 C:\Users\fidal\.gradle\caches\9.0.0\transforms\75cfa771fd177b905637dfa19f27cb00\transformed\savedstate-1.2.0\res
+com.fidal.fidalgo.app-startup-runtime-1.1.1-9 C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\res
+com.fidal.fidalgo.app-emoji2-views-helper-1.2.0-10 C:\Users\fidal\.gradle\caches\9.0.0\transforms\bd93ed2b5ddf5cb1dfa0b39261457a49\transformed\emoji2-views-helper-1.2.0\res
+com.fidal.fidalgo.app-webkit-1.10.0-11 C:\Users\fidal\.gradle\caches\9.0.0\transforms\c4cd74d0ca76426775f1d7203027fe96\transformed\webkit-1.10.0\res
+com.fidal.fidalgo.app-core-ktx-1.12.0-12 C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8331bf2eb404d4ae35ef7c6523ffa24\transformed\core-ktx-1.12.0\res
+com.fidal.fidalgo.app-lifecycle-livedata-core-2.5.1-13 C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8d989a9e21b18e0755e151a62a1cecb\transformed\lifecycle-livedata-core-2.5.1\res
+com.fidal.fidalgo.app-fragment-1.3.6-14 C:\Users\fidal\.gradle\caches\9.0.0\transforms\cde9798f5bbc244b8e5af000e960ed79\transformed\fragment-1.3.6\res
+com.fidal.fidalgo.app-core-1.12.0-15 C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\res
+com.fidal.fidalgo.app-activity-1.6.0-16 C:\Users\fidal\.gradle\caches\9.0.0\transforms\e76bb689ebedbf51d79d651ca01d27b6\transformed\activity-1.6.0\res
+com.fidal.fidalgo.app-pngs-17 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\build\generated\res\pngs\debug
+com.fidal.fidalgo.app-resValues-18 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\build\generated\res\resValues\debug
+com.fidal.fidalgo.app-packageDebugResources-19 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.fidal.fidalgo.app-packageDebugResources-20 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.fidal.fidalgo.app-debug-21 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.fidal.fidalgo.app-debug-22 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\debug\res
+com.fidal.fidalgo.app-main-23 C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\res

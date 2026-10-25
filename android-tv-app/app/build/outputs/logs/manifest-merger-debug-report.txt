@@ -1,0 +1,257 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:2:1-57:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\140cab84ba8b96869dccad430952c7a3\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\38072a331eed77241ac0a6f46bfb33ca\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.webkit:webkit:1.10.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c4cd74d0ca76426775f1d7203027fe96\transformed\webkit-1.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\fidal\.gradle\caches\9.0.0\transforms\cde9798f5bbc244b8e5af000e960ed79\transformed\fragment-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.6.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e76bb689ebedbf51d79d651ca01d27b6\transformed\activity-1.6.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\01bc87a21d59d20055981c51d2133179\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\bd93ed2b5ddf5cb1dfa0b39261457a49\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\dc9863bf2ce2dd0b8eef96fc76d1e746\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8e833214075145c1194fe62492bc486\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\d31ae555f48cc14cbb854be42408df12\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\26cf9746c1323027b529831f991a8f43\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\a7dd79c1887f1038ad218049ed098606\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6c5924b341db128105821691e4996cd8\transformed\lifecycle-viewmodel-2.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5d9ef6c0dd2306f2700fd978beffd1b5\transformed\lifecycle-viewmodel-savedstate-2.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8331bf2eb404d4ae35ef7c6523ffa24\transformed\core-ktx-1.12.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\75cfa771fd177b905637dfa19f27cb00\transformed\savedstate-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\4e0f8c991edf3e62591c7e6edb8e1463\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\75b64a112482fd80bfd29f46a3631d3c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6dc41d8bcd2913f465b763cb9c840778\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\b34358d4d9cfa7e229ea961d37ef0987\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ba448cb2a05e09054ce2eadb2b955308\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6f09a6b5abead6e822c3ee13a7a15e59\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ec06922dab06548c69c47681f9f02f7b\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8d989a9e21b18e0755e151a62a1cecb\transformed\lifecycle-livedata-core-2.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5e3ba00f54bb0b251d2e23d9a83eb2e1\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+	package
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:4:5-32
+		INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:9:5-68
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:9:22-65
+uses-feature#android.software.leanback
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:12:5-14:36
+	android:required
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:14:9-33
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:13:9-49
+uses-feature#android.hardware.touchscreen
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:15:5-17:36
+	android:required
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:17:9-33
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:16:9-52
+uses-feature#android.hardware.microphone
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:18:5-20:36
+	android:required
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:20:9-33
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:19:9-51
+uses-feature#android.hardware.camera
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:21:5-23:36
+	android:required
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:23:9-33
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:22:9-47
+application
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:25:5-55:19
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:25:5-55:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ba448cb2a05e09054ce2eadb2b955308\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ba448cb2a05e09054ce2eadb2b955308\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:31:9-35
+	android:label
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:30:9-33
+	android:hardwareAccelerated
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:27:9-43
+	tools:targetApi
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:34:9-29
+	android:icon
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:28:9-43
+	android:allowBackup
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:26:9-35
+	android:banner
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:29:9-45
+	android:theme
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:32:9-47
+	android:usesCleartextTraffic
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:33:9-44
+activity#com.fidal.fidalgo.MainActivity
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:36:9-54:20
+	android:screenOrientation
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:40:13-50
+	android:exported
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:38:13-36
+	android:configChanges
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:39:13-106
+	android:theme
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:41:13-51
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:37:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:44:13-47:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:45:17-69
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:45:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:46:17-77
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:46:27-74
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:50:13-53:29
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:52:17-86
+	android:name
+		ADDED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml:52:27-83
+uses-sdk
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\140cab84ba8b96869dccad430952c7a3\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\140cab84ba8b96869dccad430952c7a3\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\38072a331eed77241ac0a6f46bfb33ca\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\38072a331eed77241ac0a6f46bfb33ca\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.10.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c4cd74d0ca76426775f1d7203027fe96\transformed\webkit-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.webkit:webkit:1.10.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c4cd74d0ca76426775f1d7203027fe96\transformed\webkit-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\fidal\.gradle\caches\9.0.0\transforms\cde9798f5bbc244b8e5af000e960ed79\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\fidal\.gradle\caches\9.0.0\transforms\cde9798f5bbc244b8e5af000e960ed79\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.6.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e76bb689ebedbf51d79d651ca01d27b6\transformed\activity-1.6.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.6.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e76bb689ebedbf51d79d651ca01d27b6\transformed\activity-1.6.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\01bc87a21d59d20055981c51d2133179\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\01bc87a21d59d20055981c51d2133179\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\bd93ed2b5ddf5cb1dfa0b39261457a49\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\bd93ed2b5ddf5cb1dfa0b39261457a49\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\dc9863bf2ce2dd0b8eef96fc76d1e746\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\dc9863bf2ce2dd0b8eef96fc76d1e746\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8e833214075145c1194fe62492bc486\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8e833214075145c1194fe62492bc486\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\d31ae555f48cc14cbb854be42408df12\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\d31ae555f48cc14cbb854be42408df12\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\26cf9746c1323027b529831f991a8f43\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\26cf9746c1323027b529831f991a8f43\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\a7dd79c1887f1038ad218049ed098606\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\a7dd79c1887f1038ad218049ed098606\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6c5924b341db128105821691e4996cd8\transformed\lifecycle-viewmodel-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6c5924b341db128105821691e4996cd8\transformed\lifecycle-viewmodel-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5d9ef6c0dd2306f2700fd978beffd1b5\transformed\lifecycle-viewmodel-savedstate-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5d9ef6c0dd2306f2700fd978beffd1b5\transformed\lifecycle-viewmodel-savedstate-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8331bf2eb404d4ae35ef7c6523ffa24\transformed\core-ktx-1.12.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8331bf2eb404d4ae35ef7c6523ffa24\transformed\core-ktx-1.12.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\75cfa771fd177b905637dfa19f27cb00\transformed\savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\75cfa771fd177b905637dfa19f27cb00\transformed\savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\4e0f8c991edf3e62591c7e6edb8e1463\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\4e0f8c991edf3e62591c7e6edb8e1463\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\75b64a112482fd80bfd29f46a3631d3c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\75b64a112482fd80bfd29f46a3631d3c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6dc41d8bcd2913f465b763cb9c840778\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6dc41d8bcd2913f465b763cb9c840778\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\b34358d4d9cfa7e229ea961d37ef0987\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\b34358d4d9cfa7e229ea961d37ef0987\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ba448cb2a05e09054ce2eadb2b955308\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ba448cb2a05e09054ce2eadb2b955308\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6f09a6b5abead6e822c3ee13a7a15e59\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\6f09a6b5abead6e822c3ee13a7a15e59\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ec06922dab06548c69c47681f9f02f7b\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\ec06922dab06548c69c47681f9f02f7b\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8d989a9e21b18e0755e151a62a1cecb\transformed\lifecycle-livedata-core-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\c8d989a9e21b18e0755e151a62a1cecb\transformed\lifecycle-livedata-core-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5e3ba00f54bb0b251d2e23d9a83eb2e1\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5e3ba00f54bb0b251d2e23d9a83eb2e1\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+	android:targetSdkVersion
+		INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\fidal\OneDrive\Área de Trabalho\FIDAL-GO-IPTV\android-tv-app\app\src\main\AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\8319f3cf53d6d57dfb6ca52977d24136\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\5c335b377a060dec80a854341c139ea5\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+permission#com.fidal.fidalgo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+uses-permission#com.fidal.fidalgo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\fidal\.gradle\caches\9.0.0\transforms\e293dec36940609d4e076a04188a7e78\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\fidal\.gradle\caches\9.0.0\transforms\05b261f737a836bd02653b6ac22e2fe3\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
